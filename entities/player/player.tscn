@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://coikl0fkikb3w"]
+
+[ext_resource type="Script" path="res://entities/player/player.gd" id="1_yb1wu"]
+[ext_resource type="PackedScene" uid="uid://xb1yh6pcx1rf" path="res://components/movement/movement_component.tscn" id="2_s1y7t"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uqobk"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_hd06y"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_yb1wu")
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_uqobk")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_hd06y")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.838671, 0.544639, 0, -0.544639, 0.838671, 0, 3, 4.5)
+
+[node name="MovementComponent" parent="." instance=ExtResource("2_s1y7t")]
+current_speed = 5.0
+max_speed = 20.0
+jump_velocity = 4.5
+additional_gravity_force = Vector3(0, -3, 0)
