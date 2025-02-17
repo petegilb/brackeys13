@@ -10,7 +10,7 @@ var speed_change_rate := 1
 ### Onready Variables ###
 @onready var movement = $MovementComponent
 @onready var mouse = $MouseDirectionComponent
-@onready var body = $Mesh
+@onready var body = $Collider/test_character
 @onready var collider = $Collider
 
 ### Built in virtual functions ###

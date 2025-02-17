@@ -12,7 +12,6 @@ signal mouse_moved
 ### Exported variables ###
 @export var min_speed := 1.0
 @export var active_camera : Camera3D
-@export var mesh: Node3D
 @export var collider: Node3D
 
 ### Public variables ###
@@ -38,7 +37,6 @@ func _process(_delta: float) -> void:
 
 	# Rotate parent_node to face the direction of the mouse (ignore Y-axis)
 	target_rotation = atan2(-direction_to_mouse.x, -direction_to_mouse.z)
-	mesh.rotation.y = target_rotation
 	collider.rotation.y = target_rotation
 	mouse_moved.emit()
 
