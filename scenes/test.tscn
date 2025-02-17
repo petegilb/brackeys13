@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bdp7v48tl2q2d"]
+[gd_scene load_steps=10 format=3 uid="uid://bdp7v48tl2q2d"]
 
 [ext_resource type="PackedScene" uid="uid://coikl0fkikb3w" path="res://entities/player/player.tscn" id="1_w38vl"]
 [ext_resource type="Script" path="res://debug/control.gd" id="2_eacim"]
 [ext_resource type="Script" path="res://debug/label.gd" id="2_swru3"]
+[ext_resource type="PackedScene" uid="uid://dsl13yinlqrcr" path="res://assets/models/test_character.glb" id="4_hku17"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fnsjg"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -56,3 +57,6 @@ mesh = SubResource("BoxMesh_kbcih")
 
 [node name="Collider" type="CollisionShape3D" parent="Floor"]
 shape = SubResource("BoxShape3D_q3msw")
+
+[node name="test_character" parent="." instance=ExtResource("4_hku17")]
+transform = Transform3D(0.983785, 0, 0.179352, 0, 1, 0, -0.179352, 0, 0.983785, -6.25502, -0.5, 1.75147)

@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://coikl0fkikb3w"]
+[gd_scene load_steps=11 format=3 uid="uid://coikl0fkikb3w"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_yb1wu"]
 [ext_resource type="PackedScene" uid="uid://xb1yh6pcx1rf" path="res://components/movement/movement_component.tscn" id="2_s1y7t"]
 [ext_resource type="PackedScene" uid="uid://5umn66bnjpm" path="res://components/direction/mouse_direction_component.tscn" id="3_j4bib"]
+[ext_resource type="PackedScene" uid="uid://dsl13yinlqrcr" path="res://assets/models/test_character.glb" id="4_8tp0c"]
+[ext_resource type="AnimationLibrary" uid="uid://cnj78ed0ellbq" path="res://assets/models/test_character_anims.glb" id="5_c3clh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uqobk"]
 
@@ -44,3 +46,10 @@ additional_gravity_force = Vector3(0, -3, 0)
 active_camera = NodePath("../Camera3D")
 mesh = NodePath("../Mesh")
 collider = NodePath("../Collider")
+
+[node name="test_character" parent="." instance=ExtResource("4_8tp0c")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="test_character"]
+libraries = {
+"test_character_anims": ExtResource("5_c3clh")
+}
