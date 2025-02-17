@@ -5,8 +5,7 @@ extends CharacterBody3D
 
 ### Public Variables ###
 var movement_direction := Vector3.ZERO
-var look_rotation := Vector2.ZERO
-var look_speed := 0.2
+var speed_change_rate := 1
 
 ### Onready Variables ###
 @onready var movement = $MovementComponent
@@ -29,6 +28,12 @@ func handle_input() -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("jump"):
 		movement.execute_jump()
+
+	if Input.is_action_just_pressed("scroll_up"):
+		movement.set_speed(movement.current_speed + speed_change_rate)
+
+	if Input.is_action_just_pressed("scroll_down"):
+		movement.set_speed(movement.current_speed - speed_change_rate)
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
