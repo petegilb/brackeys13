@@ -1,6 +1,8 @@
 class_name Player
 extends CharacterBody3D
 
+### Signals ###
+
 ### Public Variables ###
 var movement_direction := Vector3.ZERO
 var look_rotation := Vector2.ZERO
