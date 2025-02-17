@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bdp7v48tl2q2d"]
+[gd_scene load_steps=8 format=3 uid="uid://bdp7v48tl2q2d"]
 
 [ext_resource type="PackedScene" uid="uid://coikl0fkikb3w" path="res://entities/player/player.tscn" id="1_w38vl"]
-[ext_resource type="Script" path="res://debug/control.gd" id="2_eacim"]
-[ext_resource type="Script" path="res://debug/label.gd" id="2_swru3"]
+[ext_resource type="Script" path="res://scenes/control.gd" id="2_eacim"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fnsjg"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -23,22 +22,6 @@ glow_enabled = true
 
 [node name="Test" type="Node3D"]
 
-[node name="DebugCanvas" type="CanvasLayer" parent="."]
-
-[node name="DrawingLogic" type="Control" parent="DebugCanvas"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("2_eacim")
-is_debug = null
-metadata/_edit_use_anchors_ = true
-
-[node name="DebugText" type="Label" parent="DebugCanvas"]
-offset_right = 40.0
-offset_bottom = 23.0
-script = ExtResource("2_swru3")
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_buiub")
 
@@ -56,3 +39,12 @@ mesh = SubResource("BoxMesh_kbcih")
 
 [node name="Collider" type="CollisionShape3D" parent="Floor"]
 shape = SubResource("BoxShape3D_q3msw")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_eacim")
