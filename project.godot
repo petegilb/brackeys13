@@ -22,10 +22,14 @@ Global="*res://core/globals/global.gd"
 [file_customization]
 
 folder_colors={
+"res://assets/": "pink",
 "res://components/": "red",
+"res://core/": "orange",
 "res://debug/": "gray",
 "res://entities/": "green",
-"res://scenes/": "yellow"
+"res://materials/": "teal",
+"res://scenes/": "yellow",
+"res://ui/": "purple"
 }
 
 [gui]

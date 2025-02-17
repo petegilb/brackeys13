@@ -1,8 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://g3jhsivvxfjw"]
+[gd_scene load_steps=7 format=3 uid="uid://g3jhsivvxfjw"]
 
 [ext_resource type="Script" path="res://ui/main_menu/main_menu.gd" id="1_6ypos"]
 [ext_resource type="Theme" uid="uid://dh8nty0l4xmdy" path="res://ui/themes/main_theme.tres" id="1_mg157"]
 [ext_resource type="Texture2D" uid="uid://bhig8itpfbgw3" path="res://ui/images/samplelogo.png" id="2_lo8w6"]
+[ext_resource type="Shader" path="res://materials/shaders/scroll_background.gdshader" id="3_ty214"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gto6g"]
+shader = ExtResource("3_ty214")
+shader_parameter/screen_height = 640.0
+shader_parameter/amplitude = 0.075
+shader_parameter/frequency = 10.0
+shader_parameter/speed = 2.0
+shader_parameter/amplitude_vertical = 0.0
+shader_parameter/frequency_vertical = 0.0
+shader_parameter/speed_vertical = 0.0
+shader_parameter/scroll_direction = Vector2(0, 0)
+shader_parameter/scrolling_speed = 0.08
+shader_parameter/enable_palette_cycling = false
+shader_parameter/palette_speed = 0.1
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jcuhq"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -17,6 +32,15 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_6ypos")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.290196, 0.329412, 0.384314, 1)
 
 [node name="Logo" type="TextureRect" parent="."]
 texture_filter = 1
@@ -36,6 +60,7 @@ texture = ExtResource("2_lo8w6")
 stretch_mode = 5
 
 [node name="ScrollingBackground" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_gto6g")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
