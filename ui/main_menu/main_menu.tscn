@@ -1,0 +1,81 @@
+[gd_scene load_steps=5 format=3 uid="uid://g3jhsivvxfjw"]
+
+[ext_resource type="Script" path="res://ui/main_menu/main_menu.gd" id="1_6ypos"]
+[ext_resource type="Theme" uid="uid://dh8nty0l4xmdy" path="res://ui/themes/main_theme.tres" id="1_mg157"]
+[ext_resource type="Texture2D" uid="uid://bhig8itpfbgw3" path="res://ui/images/samplelogo.png" id="2_lo8w6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jcuhq"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_6ypos")
+
+[node name="Logo" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.286
+anchor_right = 0.5
+anchor_bottom = 0.286
+offset_left = -287.0
+offset_top = -147.328
+offset_right = 287.0
+offset_bottom = 139.672
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_lo8w6")
+stretch_mode = 5
+
+[node name="ScrollingBackground" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.7
+anchor_right = 0.5
+anchor_bottom = 0.7
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jcuhq")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("1_mg157")
+
+[node name="PlayButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_mg157")
+text = "Play"
+
+[node name="SettingsButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_mg157")
+text = "Settings"
+
+[node name="QuitButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_mg157")
+text = "Quit"
