@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://5umn66bnjpm"]
+
+[ext_resource type="Script" path="res://components/direction/mouse_direction_component.gd" id="1_mt40f"]
+
+[node name="MouseDirectionComponent" type="Node3D"]
+script = ExtResource("1_mt40f")

@@ -1,11 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://coikl0fkikb3w"]
+[gd_scene load_steps=9 format=3 uid="uid://coikl0fkikb3w"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_yb1wu"]
 [ext_resource type="PackedScene" uid="uid://xb1yh6pcx1rf" path="res://components/movement/movement_component.tscn" id="2_s1y7t"]
+[ext_resource type="PackedScene" uid="uid://5umn66bnjpm" path="res://components/direction/mouse_direction_component.tscn" id="3_j4bib"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uqobk"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_hd06y"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a4hfq"]
+albedo_color = Color(1, 0, 0.0588235, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2873j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7oi84"]
+albedo_color = Color(0.184314, 1, 0.329412, 1)
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_yb1wu")
@@ -15,6 +24,12 @@ shape = SubResource("BoxShape3D_uqobk")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_hd06y")
+surface_material_override/0 = SubResource("StandardMaterial3D_a4hfq")
+
+[node name="Head" type="MeshInstance3D" parent="Mesh"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, -0.478492)
+mesh = SubResource("BoxMesh_2873j")
+surface_material_override/0 = SubResource("StandardMaterial3D_7oi84")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.838671, 0.544639, 0, -0.544639, 0.838671, 0, 3, 4.5)
@@ -24,3 +39,8 @@ current_speed = 5.0
 max_speed = 20.0
 jump_velocity = 4.5
 additional_gravity_force = Vector3(0, -3, 0)
+
+[node name="MouseDirectionComponent" parent="." node_paths=PackedStringArray("active_camera", "mesh", "collider") instance=ExtResource("3_j4bib")]
+active_camera = NodePath("../Camera3D")
+mesh = NodePath("../Mesh")
+collider = NodePath("../Collider")
