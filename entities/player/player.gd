@@ -30,9 +30,6 @@ func handle_input() -> void:
 	if Input.is_action_just_pressed("jump"):
 		movement.execute_jump()
 
-	if Input.is_action_just_pressed("test_action"):
-		mouse.look_at_mouse()
-
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("left", "right", "up", "down")
