@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bdp7v48tl2q2d"]
+[gd_scene load_steps=11 format=3 uid="uid://bdp7v48tl2q2d"]
 
 [ext_resource type="PackedScene" uid="uid://coikl0fkikb3w" path="res://entities/player/player.tscn" id="1_w38vl"]
 [ext_resource type="Script" path="res://debug/control.gd" id="2_eacim"]
 [ext_resource type="Script" path="res://debug/label.gd" id="2_swru3"]
 [ext_resource type="PackedScene" uid="uid://dsl13yinlqrcr" path="res://assets/models/test_character.glb" id="4_hku17"]
+[ext_resource type="PackedScene" uid="uid://dpt73i33yks47" path="res://entities/test/test_entity.tscn" id="5_i84np"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fnsjg"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -51,6 +52,8 @@ shadow_enabled = true
 
 [node name="Floor" type="StaticBody3D" parent="."]
 transform = Transform3D(30, 0, 0, 0, 1, 0, 0, 0, 30, 0, -1, 0)
+collision_layer = 2
+collision_mask = 0
 
 [node name="Mesh" type="CSGMesh3D" parent="Floor"]
 mesh = SubResource("BoxMesh_kbcih")
@@ -60,3 +63,12 @@ shape = SubResource("BoxShape3D_q3msw")
 
 [node name="test_character" parent="." instance=ExtResource("4_hku17")]
 transform = Transform3D(0.983785, 0, 0.179352, 0, 1, 0, -0.179352, 0, 0.983785, -6.25502, -0.5, 1.75147)
+
+[node name="TestEntity" parent="." instance=ExtResource("5_i84np")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.85887, 1.11803, 0)
+
+[node name="TestEntity2" parent="." instance=ExtResource("5_i84np")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.06376, 2.23607, 1.5546)
+
+[node name="TestEntity3" parent="." instance=ExtResource("5_i84np")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.44107, 3.3541, -1.0724)

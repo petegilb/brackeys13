@@ -5,3 +5,9 @@ extends Node
 
 func quit_game() -> void:
     get_tree().quit()
+
+### Collision Mask Layers ###
+const PLAYER_LAYER := 1
+const FLOOR_LAYER := 2
+const OBSTACLE_LAYER := 3
+const ENTITY_LAYER := 4
