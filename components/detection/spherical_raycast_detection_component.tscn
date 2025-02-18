@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ha8yl5akieiv"]
+
+[ext_resource type="Script" path="res://components/detection/spherical_raycast_detection_component.gd" id="1_bf0w8"]
+
+[node name="SphericalRaycastDetectionComponent" type="Node3D" node_paths=PackedStringArray("exceptions")]
+script = ExtResource("1_bf0w8")
+exceptions = []

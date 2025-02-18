@@ -1,14 +1,17 @@
-[gd_scene load_steps=11 format=3 uid="uid://coikl0fkikb3w"]
+[gd_scene load_steps=15 format=3 uid="uid://coikl0fkikb3w"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_yb1wu"]
 [ext_resource type="PackedScene" uid="uid://xb1yh6pcx1rf" path="res://components/movement/movement_component.tscn" id="2_s1y7t"]
 [ext_resource type="PackedScene" uid="uid://5umn66bnjpm" path="res://components/direction/mouse_direction_component.tscn" id="3_j4bib"]
 [ext_resource type="PackedScene" uid="uid://dsl13yinlqrcr" path="res://assets/models/test_character.glb" id="4_8tp0c"]
 [ext_resource type="AnimationLibrary" uid="uid://cnj78ed0ellbq" path="res://assets/models/test_character_anims.glb" id="5_c3clh"]
+[ext_resource type="PackedScene" uid="uid://0mfdqey5wu06" path="res://components/nervousness/nervous_component.tscn" id="6_wakg4"]
+[ext_resource type="PackedScene" uid="uid://dt3j8o5h7yjes" path="res://components/detection/detection_component.tscn" id="7_3gxq7"]
+[ext_resource type="PackedScene" uid="uid://ha8yl5akieiv" path="res://components/detection/spherical_raycast_detection_component.tscn" id="8_ybe38"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6hmog"]
-radius = 0.433366
-height = 1.83171
+radius = 0.254781
+height = 1.70056
 
 [sub_resource type="BoxMesh" id="BoxMesh_hd06y"]
 
@@ -20,7 +23,10 @@ albedo_color = Color(1, 0, 0.0588235, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7oi84"]
 albedo_color = Color(0.184314, 1, 0.329412, 1)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_txfre"]
+
 [node name="Player" type="CharacterBody3D"]
+collision_mask = 15
 script = ExtResource("1_yb1wu")
 
 [node name="Camera3D" type="Camera3D" parent="."]
@@ -59,3 +65,18 @@ surface_material_override/0 = SubResource("StandardMaterial3D_a4hfq")
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, -0.478492)
 mesh = SubResource("BoxMesh_2873j")
 surface_material_override/0 = SubResource("StandardMaterial3D_7oi84")
+
+[node name="DetectionComponent" parent="." instance=ExtResource("7_3gxq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.969131, 0)
+collision_mask = 12
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionComponent"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+shape = SubResource("SphereShape3D_txfre")
+
+[node name="NervousComponent" parent="." node_paths=PackedStringArray("movement_component", "nervousness_raycast_area") instance=ExtResource("6_wakg4")]
+movement_component = NodePath("../MovementComponent")
+nervousness_raycast_area = NodePath("../SphericalRaycastDetectionComponent")
+
+[node name="SphericalRaycastDetectionComponent" parent="." instance=ExtResource("8_ybe38")]
+transform = Transform3D(1, 0.000311369, 0.000144512, -0.000311378, 1, 6.33228e-05, -0.000144493, -6.33668e-05, 1, 0, 0, 0)

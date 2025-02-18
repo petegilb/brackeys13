@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://0mfdqey5wu06"]
+
+[ext_resource type="Script" path="res://components/nervousness/nervous_component.gd" id="1_umj1n"]
+
+[node name="NervousComponent" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0028708, 0.00542188, -0.0104573)
+script = ExtResource("1_umj1n")
