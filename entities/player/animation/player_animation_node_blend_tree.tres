@@ -1,9 +1,21 @@
-[gd_resource type="AnimationNodeBlendTree" load_steps=2 format=3 uid="uid://dxu2ujgkbb5kc"]
+[gd_resource type="AnimationNodeBlendTree" load_steps=4 format=3 uid="uid://dxu2ujgkbb5kc"]
 
 [ext_resource type="AnimationNodeStateMachine" uid="uid://c5i6esaay58cf" path="res://entities/player/animation/player_state_machine.tres" id="1_g7nw2"]
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_q2ivs"]
+animation = &"sandwich_pose/PlatePose"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_utwot"]
+filter_enabled = true
+filters = ["root/Skeleton3D:LeftHand", "root/Skeleton3D:LeftIndexDistal", "root/Skeleton3D:LeftIndexIntermediate", "root/Skeleton3D:LeftIndexProximal", "root/Skeleton3D:LeftLowerArm", "root/Skeleton3D:LeftLowerArm_twist_01", "root/Skeleton3D:LeftMiddleDistal", "root/Skeleton3D:LeftMiddleIntermediate", "root/Skeleton3D:LeftMiddleProximal", "root/Skeleton3D:LeftShoulder", "root/Skeleton3D:LeftThumbDistal", "root/Skeleton3D:LeftThumbMetacarpal", "root/Skeleton3D:LeftThumbProximal", "root/Skeleton3D:LeftUpperArm", "root/Skeleton3D:LeftUpperArm_twist_01", "root/Skeleton3D:RightHand", "root/Skeleton3D:RightIndexDistal", "root/Skeleton3D:RightIndexIntermediate", "root/Skeleton3D:RightIndexProximal", "root/Skeleton3D:RightLowerArm", "root/Skeleton3D:RightLowerArm_twist_01", "root/Skeleton3D:RightMiddleDistal", "root/Skeleton3D:RightMiddleIntermediate", "root/Skeleton3D:RightMiddleProximal", "root/Skeleton3D:RightShoulder", "root/Skeleton3D:RightThumbDistal", "root/Skeleton3D:RightThumbMetacarpal", "root/Skeleton3D:RightThumbProximal", "root/Skeleton3D:RightUpperArm", "root/Skeleton3D:RightUpperArm_twist_01"]
+
 [resource]
-graph_offset = Vector2(-392, -70)
+graph_offset = Vector2(-421.48, 37.8568)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_q2ivs")
+nodes/Animation/position = Vector2(-140, 480)
+nodes/PlateBlend/node = SubResource("AnimationNodeBlend2_utwot")
+nodes/PlateBlend/position = Vector2(220, 240)
 nodes/PlayerLocomotion/node = ExtResource("1_g7nw2")
 nodes/PlayerLocomotion/position = Vector2(-80, 140)
-node_connections = [&"output", 0, &"PlayerLocomotion"]
+nodes/output/position = Vector2(560, 160)
+node_connections = [&"PlateBlend", 0, &"PlayerLocomotion", &"PlateBlend", 1, &"Animation", &"output", 0, &"PlateBlend"]

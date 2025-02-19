@@ -19,7 +19,7 @@ const MAX_NERVOUSNESS_GAIN := 90.0
 @export var movement_component: MovementComponent
 @export var nervousness_raycast_area: SphericalRaycastDetectionComponent
 @export var nervousness_loss_rate := 15
-@export var nervous_force := 1.0
+@export var nervous_force := 0.025
 @export var noise_seed := randi()
 @export var noise_frequency := 0.1
 @export var noise_type := FastNoiseLite.TYPE_PERLIN
