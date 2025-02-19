@@ -4,23 +4,23 @@ extends CharacterBody3D
 ### Signals ###
 
 ### Public Variables ###
-var movement_direction := Vector3.ZERO
 var speed_change_rate := 1
 
 ### Onready Variables ###
 @onready var movement = $MovementComponent
+@onready var nervous = $NervousComponent
 @onready var mouse = $MouseDirectionComponent
 @onready var body = $Collider/test_character
 @onready var collider = $Collider
 
 ### Built in virtual functions ###
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	# Obtain input
 	handle_input()
 
 	# Execute the movement
-	movement.move(movement_direction)
+	movement.move(delta)
 
 ### Public functions ###
 
@@ -38,4 +38,4 @@ func handle_input() -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("left", "right", "up", "down")
-	movement_direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	movement.movement_direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()

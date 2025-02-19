@@ -4,4 +4,9 @@
 
 [node name="SphericalRaycastDetectionComponent" type="Node3D" node_paths=PackedStringArray("exceptions")]
 script = ExtResource("1_bf0w8")
+num_ray_casts_horizontal = null
+num_ray_casts_vertical = null
+ray_cast_origin = null
+ray_cast_length = null
 exceptions = []
+detectable_collision_masks = null

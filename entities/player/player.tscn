@@ -11,7 +11,7 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6hmog"]
 radius = 0.254781
-height = 1.70056
+height = 1.88521
 
 [sub_resource type="BoxMesh" id="BoxMesh_hd06y"]
 
@@ -30,7 +30,7 @@ collision_mask = 15
 script = ExtResource("1_yb1wu")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.681845, 0.731496, 0, -0.731496, 0.681845, 0.12489, 5.56861, 5.74996)
+transform = Transform3D(1, 0, 0, 0, 0.83867, 0.544639, 0, -0.544639, 0.83867, 0, 2.5, 2)
 
 [node name="MovementComponent" parent="." instance=ExtResource("2_s1y7t")]
 current_speed = 5.0
@@ -77,6 +77,12 @@ shape = SubResource("SphereShape3D_txfre")
 [node name="NervousComponent" parent="." node_paths=PackedStringArray("movement_component", "nervousness_raycast_area") instance=ExtResource("6_wakg4")]
 movement_component = NodePath("../MovementComponent")
 nervousness_raycast_area = NodePath("../SphericalRaycastDetectionComponent")
+nervous_force = 0.025
 
 [node name="SphericalRaycastDetectionComponent" parent="." instance=ExtResource("8_ybe38")]
 transform = Transform3D(1, 0.000311369, 0.000144512, -0.000311378, 1, 6.33228e-05, -0.000144493, -6.33668e-05, 1, 0, 0, 0)
+num_ray_casts_horizontal = null
+num_ray_casts_vertical = null
+ray_cast_origin = null
+ray_cast_length = null
+detectable_collision_masks = null
