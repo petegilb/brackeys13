@@ -1,15 +1,15 @@
 [remap]
 
-importer="animation_library"
+importer="scene"
 importer_version=1
-type="AnimationLibrary"
-uid="uid://bn4voihl3pbpd"
-path="res://.godot/imported/sandwich_pose.glb-711769e75f116052f3588d4761eb5992.res"
+type="PackedScene"
+uid="uid://dsl13yinlqrcr"
+path="res://.godot/imported/test_character.glb-ab0e7bd1e84153cd5da6eebcaec0c918.scn"
 
 [deps]
 
-source_file="res://assets/models/sandwich_pose.glb"
-dest_files=["res://.godot/imported/sandwich_pose.glb-711769e75f116052f3588d4761eb5992.res"]
+source_file="res://assets/models/character/test_character.glb"
+dest_files=["res://.godot/imported/test_character.glb-ab0e7bd1e84153cd5da6eebcaec0c918.scn"]
 
 [params]
 

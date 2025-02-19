@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://coikl0fkikb3w" path="res://entities/player/player.tscn" id="1_w38vl"]
 [ext_resource type="Script" path="res://debug/control.gd" id="2_eacim"]
 [ext_resource type="Script" path="res://debug/label.gd" id="2_swru3"]
-[ext_resource type="PackedScene" uid="uid://dsl13yinlqrcr" path="res://assets/models/test_character.glb" id="4_hku17"]
+[ext_resource type="PackedScene" uid="uid://dsl13yinlqrcr" path="res://assets/models/character/test_character.glb" id="4_hku17"]
 [ext_resource type="PackedScene" uid="uid://dpt73i33yks47" path="res://entities/test/test_entity.tscn" id="5_i84np"]
 [ext_resource type="PackedScene" uid="uid://cch76xbj20hgx" path="res://ui/hud/nervous_meter/nervous_meter.tscn" id="6_b4miv"]
 
