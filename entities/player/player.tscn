@@ -32,10 +32,10 @@ collision_mask = 15
 script = ExtResource("1_yb1wu")
 
 [node name="CameraPivot" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.735293, 0.677749, 0, -0.677749, 0.735293, 0, 1.50148, 0)
+transform = Transform3D(1, 0, 0, 0, 0.785857, 0.618408, 0, -0.618408, 0.785857, 0, 1.50148, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 
 [node name="MovementComponent" parent="." instance=ExtResource("2_s1y7t")]
 current_speed = 5.0
@@ -64,7 +64,7 @@ tree_root = ExtResource("6_0qtxj")
 advance_expression_base_node = NodePath("../../../AnimationComponent")
 anim_player = NodePath("../AnimationPlayer")
 parameters/PlayerLocomotion/conditions/in_air = false
-parameters/PlayerLocomotion/WalkIdle/blend_position = Vector2(0, 0)
+parameters/PlayerLocomotion/WalkIdle/blend_position = Vector2(-0.00146413, 0.00683379)
 
 [node name="Mesh" type="MeshInstance3D" parent="Collider"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.389585, 0)
