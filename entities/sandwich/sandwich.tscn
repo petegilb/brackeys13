@@ -17,3 +17,5 @@ shape = SubResource("BoxShape3D_2dl5s")
 
 [node name="SandwichModel" parent="RigidBody3D/CollisionShape3D" instance=ExtResource("1_0rscr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00325012, -0.000315681, 0.00831604)
+
+[editable path="RigidBody3D/CollisionShape3D/SandwichModel"]

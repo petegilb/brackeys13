@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dk72dgd4x7iig"]
+
+[ext_resource type="Material" uid="uid://bggkjg54qfkab" path="res://materials/shaders/outline/mat_outline.tres" id="1_64hbb"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_0ebdu"]
+size = Vector2(2, 2)
+
+[node name="PpOutline" type="MeshInstance3D"]
+material_override = ExtResource("1_64hbb")
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_0ebdu")
