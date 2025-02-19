@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://gew0ubcyhqor"]
+
+[ext_resource type="PackedScene" uid="uid://b3rdxtvfkbm3t" path="res://assets/models/plate/plate.glb" id="1_sf4fx"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_5qs5k"]
+height = 0.0307556
+radius = 0.13707
+
+[node name="Plate" type="Node3D"]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+collision_mask = 0
+
+[node name="plate" parent="RigidBody3D" instance=ExtResource("1_sf4fx")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00695578, 0)
+shape = SubResource("CylinderShape3D_5qs5k")
