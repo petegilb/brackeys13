@@ -1,13 +1,15 @@
-[gd_scene load_steps=15 format=3 uid="uid://coikl0fkikb3w"]
+[gd_scene load_steps=17 format=3 uid="uid://coikl0fkikb3w"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_yb1wu"]
 [ext_resource type="PackedScene" uid="uid://xb1yh6pcx1rf" path="res://components/movement/movement_component.tscn" id="2_s1y7t"]
 [ext_resource type="PackedScene" uid="uid://5umn66bnjpm" path="res://components/direction/mouse_direction_component.tscn" id="3_j4bib"]
 [ext_resource type="PackedScene" uid="uid://dsl13yinlqrcr" path="res://assets/models/test_character.glb" id="4_8tp0c"]
 [ext_resource type="AnimationLibrary" uid="uid://cnj78ed0ellbq" path="res://assets/models/test_character_anims.glb" id="5_c3clh"]
+[ext_resource type="AnimationNodeBlendTree" uid="uid://dxu2ujgkbb5kc" path="res://entities/player/animation/player_animation_node_blend_tree.tres" id="6_0qtxj"]
 [ext_resource type="PackedScene" uid="uid://0mfdqey5wu06" path="res://components/nervousness/nervous_component.tscn" id="6_wakg4"]
 [ext_resource type="PackedScene" uid="uid://dt3j8o5h7yjes" path="res://components/detection/detection_component.tscn" id="7_3gxq7"]
 [ext_resource type="PackedScene" uid="uid://ha8yl5akieiv" path="res://components/detection/spherical_raycast_detection_component.tscn" id="8_ybe38"]
+[ext_resource type="PackedScene" uid="uid://dt7qvyftqn7av" path="res://components/animation/animation_component.tscn" id="9_h4oi0"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6hmog"]
 radius = 0.254781
@@ -29,8 +31,11 @@ albedo_color = Color(0.184314, 1, 0.329412, 1)
 collision_mask = 15
 script = ExtResource("1_yb1wu")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.83867, 0.544639, 0, -0.544639, 0.83867, 0, 2.5, 2)
+[node name="CameraPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.735293, 0.677749, 0, -0.677749, 0.735293, 0, 1.50148, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7)
 
 [node name="MovementComponent" parent="." instance=ExtResource("2_s1y7t")]
 current_speed = 5.0
@@ -39,7 +44,7 @@ jump_velocity = 4.5
 additional_gravity_force = Vector3(0, -3, 0)
 
 [node name="MouseDirectionComponent" parent="." node_paths=PackedStringArray("active_camera", "collider") instance=ExtResource("3_j4bib")]
-active_camera = NodePath("../Camera3D")
+active_camera = NodePath("../CameraPivot/Camera3D")
 collider = NodePath("../Collider")
 
 [node name="Collider" type="CollisionShape3D" parent="."]
@@ -53,6 +58,13 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.
 libraries = {
 "test_character_anims": ExtResource("5_c3clh")
 }
+
+[node name="AnimationTree" type="AnimationTree" parent="Collider/test_character"]
+tree_root = ExtResource("6_0qtxj")
+advance_expression_base_node = NodePath("../../../AnimationComponent")
+anim_player = NodePath("../AnimationPlayer")
+parameters/PlayerLocomotion/conditions/in_air = false
+parameters/PlayerLocomotion/WalkIdle/blend_position = Vector2(0, 0)
 
 [node name="Mesh" type="MeshInstance3D" parent="Collider"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.389585, 0)
@@ -86,3 +98,8 @@ num_ray_casts_vertical = null
 ray_cast_origin = null
 ray_cast_length = null
 detectable_collision_masks = null
+
+[node name="AnimationComponent" parent="." node_paths=PackedStringArray("anim_tree", "active_camera", "collider") instance=ExtResource("9_h4oi0")]
+anim_tree = NodePath("../Collider/test_character/AnimationTree")
+active_camera = NodePath("../CameraPivot/Camera3D")
+collider = NodePath("../Collider")

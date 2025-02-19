@@ -1,0 +1,26 @@
+[gd_resource type="AnimationNodeStateMachine" load_steps=6 format=3 uid="uid://c5i6esaay58cf"]
+
+[ext_resource type="AnimationNodeBlendSpace2D" uid="uid://ccus5mop6tk3n" path="res://entities/player/animation/player_walk_blend_space_2d.tres" id="1_5er56"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rvykg"]
+animation = &"test_character_anims/Loco_Jump"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0m5lo"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5a67u"]
+advance_mode = 2
+advance_condition = &"in_air"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yuj7i"]
+switch_mode = 2
+advance_mode = 2
+
+[resource]
+states/Start/position = Vector2(237, 100)
+states/WalkIdle/node = ExtResource("1_5er56")
+states/WalkIdle/position = Vector2(474, 100)
+states/test_character_anims_Loco_Jump/node = SubResource("AnimationNodeAnimation_rvykg")
+states/test_character_anims_Loco_Jump/position = Vector2(632, -22)
+transitions = ["Start", "WalkIdle", SubResource("AnimationNodeStateMachineTransition_0m5lo"), "WalkIdle", "test_character_anims_Loco_Jump", SubResource("AnimationNodeStateMachineTransition_5a67u"), "test_character_anims_Loco_Jump", "WalkIdle", SubResource("AnimationNodeStateMachineTransition_yuj7i")]
+graph_offset = Vector2(-102, -105)

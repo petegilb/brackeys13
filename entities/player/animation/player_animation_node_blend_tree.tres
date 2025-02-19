@@ -1,0 +1,9 @@
+[gd_resource type="AnimationNodeBlendTree" load_steps=2 format=3 uid="uid://dxu2ujgkbb5kc"]
+
+[ext_resource type="AnimationNodeStateMachine" uid="uid://c5i6esaay58cf" path="res://entities/player/animation/player_state_machine.tres" id="1_g7nw2"]
+
+[resource]
+graph_offset = Vector2(-392, -70)
+nodes/PlayerLocomotion/node = ExtResource("1_g7nw2")
+nodes/PlayerLocomotion/position = Vector2(-80, 140)
+node_connections = [&"output", 0, &"PlayerLocomotion"]
