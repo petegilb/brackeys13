@@ -22,7 +22,6 @@ const STARTING_HORIZONTAL_ANGLE = 0.0
 
 ### Public variables ###
 var raycasts_to_closest_body: Dictionary = {}
-var body_to_colliding_point: Dictionary = {}
 
 ### Private variables ###
 
@@ -51,6 +50,14 @@ func _process(_delta: float) -> void:
 	_detect_collisions()
 
 ### Public methods ###
+
+func get_unique_colliding_bodies() -> Dictionary:
+	var body_to_colliding_point: Dictionary = {} 
+	for ray in raycasts_to_closest_body:
+		var closest_body = raycasts_to_closest_body[ray]
+		if (closest_body != null):
+			body_to_colliding_point[closest_body] = ray.get_collision_point()
+	return body_to_colliding_point
 
 ### Private methods ###
 
@@ -88,9 +95,6 @@ func _detect_collisions() -> void:
 	for raycast in raycasts_to_closest_body:
 		if raycast.is_colliding():
 			var body: Object = raycast.get_collider()
-			body_to_colliding_point[body] = raycast.get_collision_point()
 			raycasts_to_closest_body[raycast] = body
 		else:
-			var previous_colliding_body: Object = raycasts_to_closest_body[raycast]
-			body_to_colliding_point.erase(previous_colliding_body)
 			raycasts_to_closest_body[raycast] = null

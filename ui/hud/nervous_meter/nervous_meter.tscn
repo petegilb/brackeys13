@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://cch76xbj20hgx"]
+
+[ext_resource type="Script" path="res://ui/hud/nervous_meter/nervous_meter.gd" id="1_31k2s"]
+
+[node name="NervousMeter" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1.0
+offset_bottom = 22.3333
+script = ExtResource("1_31k2s")
+current_value = 0
+
+[node name="NervousBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 27.0
+value = 50.0
+show_percentage = false
+
+[node name="NervousProgressLabel" type="Label" parent="NervousBar"]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 25.0
+text = "0"
+
+[node name="BarLabel" type="Label" parent="."]
+layout_mode = 0
+offset_top = -20.0
+offset_right = 100.0
+offset_bottom = 3.0
+text = "Nervousness"

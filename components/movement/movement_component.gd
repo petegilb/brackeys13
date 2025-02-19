@@ -19,6 +19,9 @@ extends Node3D
 @export var additional_gravity_force := Vector3(0, 0, 0)
 
 ### Public variables ###
+var movement_direction := Vector3.ZERO
+var external_force := Vector3.ZERO
+var external_force_decay := 20000.0
 
 ### Private variables ###
 
@@ -38,13 +41,21 @@ func _process(delta: float) -> void:
 
 ### Public methods ###
 
-func move(direction: Vector3) -> void: 
-	if direction:
-		parent_character_body.velocity.x = direction.x * current_speed
-		parent_character_body.velocity.z = direction.z * current_speed
+func apply_force(direction_force: Vector3) -> void:
+	external_force = direction_force
+
+func move(delta: float) -> void: 
+	if movement_direction:
+		parent_character_body.velocity.x = movement_direction.x * current_speed
+		parent_character_body.velocity.z = movement_direction.z * current_speed
 	else:
 		parent_character_body.velocity.x = move_toward(parent_character_body.velocity.x, 0, current_speed)
 		parent_character_body.velocity.z = move_toward(parent_character_body.velocity.z, 0, current_speed)
+
+	# Apply external force
+	if external_force.length() > 0.1:
+		parent_character_body.velocity += external_force
+		external_force = external_force.move_toward(Vector3.ZERO, external_force_decay * delta)
 
 	parent_character_body.move_and_slide()
 
