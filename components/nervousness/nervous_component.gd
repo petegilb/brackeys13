@@ -31,7 +31,7 @@ var noise: Noise
 var distance_away_from_node: float
 
 ### Private variables ###
-var _is_debug_mode := true
+var _is_debug_mode := false
 var _debug_timer: SceneTreeTimer
 var _vary_direction := Vector3.ZERO
 var _random_speed := 0.0
