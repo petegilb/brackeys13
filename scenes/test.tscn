@@ -84,9 +84,6 @@ offset_right = 11.0
 offset_bottom = 47.3333
 player = NodePath("../Player")
 
-[node name="Sandwich" parent="." instance=ExtResource("7_ig3rx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.40059, 3.80606, -0.522724)
-
 [node name="Sandwich2" parent="." instance=ExtResource("7_ig3rx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.85108, -0.103612, 4.57382)
 

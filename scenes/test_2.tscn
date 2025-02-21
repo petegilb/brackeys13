@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://dhqq2povssugo"]
+
+[ext_resource type="Script" path="res://scenes/test_2.gd" id="1_8nrd1"]
+[ext_resource type="PackedScene" uid="uid://gew0ubcyhqor" path="res://entities/plate/plate.tscn" id="1_uisvu"]
+[ext_resource type="PackedScene" uid="uid://qln8lyf5544f" path="res://entities/sandwich/sandwich.tscn" id="2_dtjin"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lsasq"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_at867"]
+sky_material = SubResource("ProceduralSkyMaterial_lsasq")
+
+[sub_resource type="Environment" id="Environment_h34j8"]
+background_mode = 2
+sky = SubResource("Sky_at867")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_oybj1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x7o2c"]
+
+[node name="Test2" type="Node3D"]
+script = ExtResource("1_8nrd1")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_h34j8")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Plate" parent="." instance=ExtResource("1_uisvu")]
+
+[node name="Sandwich" parent="." instance=ExtResource("2_dtjin")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0618262, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.610229, 0)
+mesh = SubResource("BoxMesh_oybj1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+collision_layer = 2
+collision_mask = 29
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_x7o2c")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.700847, 0.713312, 0, -0.713312, 0.700847, 0, 0.4635, 0.463515)

@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://qln8lyf5544f"]
+[gd_scene load_steps=6 format=3 uid="uid://qln8lyf5544f"]
 
 [ext_resource type="PackedScene" uid="uid://b1uhv7enmdf81" path="res://assets/models/sandwich/sandwich.glb" id="1_0rscr"]
+[ext_resource type="Script" path="res://entities/sandwich/sandwich.gd" id="1_7m7ft"]
 [ext_resource type="PackedScene" uid="uid://bj0d2w08diinj" path="res://components/pickup/pickup_component.tscn" id="2_nfqi3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2dl5s"]
@@ -9,10 +10,13 @@ size = Vector3(0.182159, 0.0867844, 0.193207)
 [sub_resource type="CircleShape2D" id="CircleShape2D_fjvf2"]
 
 [node name="Sandwich" type="Node3D"]
+script = ExtResource("1_7m7ft")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 collision_layer = 16
 collision_mask = 3
+mass = 0.1
+gravity_scale = 0.8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00325012, 0.000315681, -0.00831604)
