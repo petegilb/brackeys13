@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bdp7v48tl2q2d"]
+[gd_scene load_steps=14 format=3 uid="uid://bdp7v48tl2q2d"]
 
 [ext_resource type="PackedScene" uid="uid://coikl0fkikb3w" path="res://entities/player/player.tscn" id="1_w38vl"]
 [ext_resource type="Script" path="res://debug/control.gd" id="2_eacim"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dpt73i33yks47" path="res://entities/test/test_entity.tscn" id="5_i84np"]
 [ext_resource type="PackedScene" uid="uid://cch76xbj20hgx" path="res://ui/hud/nervous_meter/nervous_meter.tscn" id="6_b4miv"]
 [ext_resource type="PackedScene" uid="uid://qln8lyf5544f" path="res://entities/sandwich/sandwich.tscn" id="7_ig3rx"]
+[ext_resource type="PackedScene" uid="uid://gew0ubcyhqor" path="res://entities/plate/plate.tscn" id="8_pcrb7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fnsjg"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -51,6 +52,7 @@ transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_w38vl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.30558, 0, 0)
 
 [node name="Floor" type="StaticBody3D" parent="."]
 transform = Transform3D(30, 0, 0, 0, 1, 0, 0, 0, 30, 0, -1, 0)
@@ -83,7 +85,7 @@ offset_bottom = 47.3333
 player = NodePath("../Player")
 
 [node name="Sandwich" parent="." instance=ExtResource("7_ig3rx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000629306, 1.25734, -0.440897)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.40059, 3.80606, -0.522724)
 
 [node name="Sandwich2" parent="." instance=ExtResource("7_ig3rx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.85108, -0.103612, 4.57382)
@@ -93,3 +95,6 @@ transform = Transform3D(9.75716, 0, 0, 0, 9.75716, 0, 0, 0, 9.75716, 4.85108, 0.
 
 [node name="Sandwich4" parent="." instance=ExtResource("7_ig3rx")]
 transform = Transform3D(27.5158, 0, 0, 0, 27.5158, 0, 0, 0, 27.5158, -6.51525, 1.14143, 10.7194)
+
+[node name="Plate" parent="." instance=ExtResource("8_pcrb7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.84323, -0.189517, 4.58395)

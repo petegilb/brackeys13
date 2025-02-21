@@ -1,18 +1,56 @@
-[gd_scene load_steps=3 format=3 uid="uid://gew0ubcyhqor"]
+[gd_scene load_steps=6 format=3 uid="uid://gew0ubcyhqor"]
 
+[ext_resource type="Script" path="res://entities/plate/plate.gd" id="1_7ci3p"]
 [ext_resource type="PackedScene" uid="uid://b3rdxtvfkbm3t" path="res://assets/models/plate/plate.glb" id="1_sf4fx"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_5qs5k"]
 height = 0.0307556
 radius = 0.13707
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_lxmif"]
+radius = 0.412156
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_cixfv"]
+radius = 0.197204
+
 [node name="Plate" type="Node3D"]
+script = ExtResource("1_7ci3p")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
-collision_mask = 0
+collision_mask = 18
 
 [node name="plate" parent="RigidBody3D" instance=ExtResource("1_sf4fx")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00695578, 0)
 shape = SubResource("CylinderShape3D_5qs5k")
+
+[node name="OuterGravity" type="Area3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00944183, 0)
+collision_mask = 16
+gravity_space_override = 1
+gravity_point = true
+gravity_point_center = Vector3(0, 0.024, 0)
+gravity_direction = Vector3(0, 0.024, 0)
+gravity = 100.0
+linear_damp_space_override = 1
+linear_damp = 100.0
+angular_damp_space_override = 3
+angular_damp = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/OuterGravity"]
+shape = SubResource("SphereShape3D_lxmif")
+
+[node name="InnerGravity" type="Area3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0188837, 0)
+collision_mask = 16
+gravity_space_override = 1
+gravity_point = true
+gravity_point_center = Vector3(0, 0.024, 0)
+gravity_direction = Vector3(0, 0.024, 0)
+gravity = 300.0
+linear_damp = 20.0
+angular_damp = 10000.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/InnerGravity"]
+shape = SubResource("SphereShape3D_cixfv")
