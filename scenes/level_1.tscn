@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dclj8nly5pcfe"]
+[gd_scene load_steps=30 format=3 uid="uid://dclj8nly5pcfe"]
 
 [ext_resource type="PackedScene" uid="uid://coikl0fkikb3w" path="res://entities/player/player.tscn" id="1_00aaa"]
 [ext_resource type="Script" path="res://core/gamemodes/sandwich_mode.gd" id="1_i0qu0"]
@@ -22,6 +22,8 @@
 [ext_resource type="PackedScene" uid="uid://qln8lyf5544f" path="res://entities/sandwich/sandwich.tscn" id="19_vk5xs"]
 [ext_resource type="PackedScene" uid="uid://b4yqv77wh1l87" path="res://entities/boss/boss.tscn" id="20_ffwoq"]
 [ext_resource type="FontFile" uid="uid://d1sf3aqcngmny" path="res://ui/fonts/UbuntuMono-Bold.ttf" id="21_4w1uv"]
+[ext_resource type="PackedScene" uid="uid://bkcyue0lteo4" path="res://assets/models/office_assets/conference_table.tscn" id="23_bep8w"]
+[ext_resource type="PackedScene" uid="uid://03h465i0cj6u" path="res://assets/models/office_assets/other_table.glb" id="23_qwvod"]
 
 [sub_resource type="Environment" id="Environment_tmcyw"]
 background_mode = 1
@@ -128,14 +130,14 @@ collision_mask = 0
 size = Vector3(0.5, 6, 76.0068)
 
 [node name="Wall" type="CSGBox3D" parent="MapAssets/CSGMeshes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.66022, 2.5, -19.9495)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.197379, 2.5, -19.9495)
 use_collision = true
 collision_layer = 2
 collision_mask = 0
-size = Vector3(14.0645, 6, 0.637756)
+size = Vector3(11.1388, 6, 0.637756)
 
 [node name="Wall3" type="CSGBox3D" parent="MapAssets/CSGMeshes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.31299, 2.5, -34.1993)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.31299, 2.5, -31.0144)
 use_collision = true
 collision_layer = 2
 collision_mask = 0
@@ -176,7 +178,7 @@ collision_mask = 0
 size = Vector3(55.2471, 0.5, 63.689)
 
 [node name="Wall2" type="CSGBox3D" parent="MapAssets/CSGMeshes"]
-transform = Transform3D(-5.02681e-08, 0, 1.15, 0, 1.15, 0, -1.15, 0, -5.02681e-08, 20.1542, 2.44025, -23.3327)
+transform = Transform3D(-5.02681e-08, 0, 1.15, 0, 1.15, 0, -1.15, 0, -5.02681e-08, 14.7039, 2.44025, -23.3327)
 use_collision = true
 collision_layer = 2
 collision_mask = 0
@@ -232,7 +234,7 @@ collision_mask = 0
 size = Vector3(5.71454, 5.5, 0.5)
 
 [node name="BossRoom" type="Node3D" parent="MapAssets"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.55666)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.38408)
 
 [node name="boss_desk" parent="MapAssets/BossRoom" instance=ExtResource("6_j8qpl")]
 transform = Transform3D(-5.90104e-08, 0, -1.35, 0, 1.35, 0, 1.35, 0, -5.90104e-08, 1, -0.5, -44)
@@ -389,7 +391,10 @@ transform = Transform3D(0.473181, 0, 0.880965, 0, 1, 0, -0.880965, 0, 0.473181, 
 transform = Transform3D(-0.997491, 0, -0.0707839, 0, 1, 0, 0.0707839, 0, -0.997491, -3.77204, -0.485919, -17.4721)
 
 [node name="Coworker8" parent="Coworkers" instance=ExtResource("13_16nmw")]
-transform = Transform3D(-0.704473, 0, 0.70973, 0, 1, 0, -0.70973, 0, -0.704473, 6.15641, -0.485919, -21.0986)
+transform = Transform3D(0.510108, 0, -0.86011, 0, 1, 0, 0.86011, 0, 0.510108, 5.22065, -0.485919, -21.4463)
+
+[node name="Coworker9" parent="Coworkers" instance=ExtResource("13_16nmw")]
+transform = Transform3D(0.99619, 0, 0.087208, 0, 1, 0, -0.087208, 0, 0.99619, 8.70095, -0.485919, -28.974)
 
 [node name="Coworker6" parent="Coworkers" instance=ExtResource("13_16nmw")]
 transform = Transform3D(0.0920749, 0, 0.995752, 0, 1, 0, -0.995752, 0, 0.0920749, 4.47979, -0.44524, -4.66053)
@@ -398,6 +403,27 @@ transform = Transform3D(0.0920749, 0, 0.995752, 0, 1, 0, -0.995752, 0, 0.0920749
 transform = Transform3D(0.290463, 0, -0.276334, 0, 0.40091, 0, 0.276334, 0, 0.290463, 4.2684, 1.44201, 10.2186)
 
 [node name="printer" parent="Coworkers" instance=ExtResource("9_kgapy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.46924, 0.0099051, -19.9382)
+transform = Transform3D(-0.999639, 0, 0.0268574, 0, 1, 0, -0.0268574, 0, -0.999639, 4.2215, 0.0099051, -20.7794)
+
+[node name="file_cabinet" parent="Coworkers" instance=ExtResource("4_07ao4")]
+transform = Transform3D(0.0687293, 0, -0.997635, 0, 1, 0, 0.997635, 0, 0.0687293, 14.0792, -0.5, -29.2527)
+
+[node name="file_cabinet2" parent="Coworkers" instance=ExtResource("4_07ao4")]
+transform = Transform3D(0.0687293, 0, -0.997635, 0, 1, 0, 0.997635, 0, 0.0687293, 14.0792, -0.5, -28.5963)
+
+[node name="file_cabinet3" parent="Coworkers" instance=ExtResource("4_07ao4")]
+transform = Transform3D(0.0687293, 0, -0.997635, 0, 1, 0, 0.997635, 0, 0.0687293, 14.0792, -0.5, -28.0097)
+
+[node name="white_board" parent="Coworkers" instance=ExtResource("8_ym4tc")]
+transform = Transform3D(-0.0242871, 0, -1.94068, 0, 1.94084, 0, 1.94068, 0, -0.0242871, 9.28841, 2.50415, -30.6955)
+
+[node name="white_board2" parent="Coworkers" instance=ExtResource("8_ym4tc")]
+transform = Transform3D(1.94068, 0, -0.024287, 0, 1.94084, 0, 0.024287, 0, 1.94068, -4.79563, 3.50415, -25.6955)
+
+[node name="other_table" parent="Coworkers" instance=ExtResource("23_qwvod")]
+transform = Transform3D(0.0193518, 0, -1.71101, 0, 1.71112, 0, 1.71101, 0, 0.0193518, -4.119, -0.480625, -25.8438)
+
+[node name="ConferenceTable" parent="." instance=ExtResource("23_bep8w")]
+transform = Transform3D(1.40667, 0, 0, 0, 1.40667, 0, 0, 0, 1.40667, 9.05426, -0.484725, -26.553)
 
 [editable path="MapAssets/BossRoom/boss_desk"]
