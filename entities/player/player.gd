@@ -43,10 +43,10 @@ func handle_input() -> void:
 	if Input.is_action_just_pressed("scroll_down"):
 		movement.set_speed(movement.current_speed - speed_change_rate)
 
-	if Input.is_action_just_pressed("pickup"):
-		if _hovered_object != null:
-			print("Picked up")
-			_hovered_object.position = plate.position
+	# if Input.is_action_just_pressed("pickup"):
+	# 	if _hovered_object != null:
+	# 		print("Picked up")
+	# 		_hovered_object.position = plate.position
 
 	if Input.is_action_just_pressed("pause"):
 		print('pressed pause...')

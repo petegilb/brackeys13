@@ -9,6 +9,12 @@ extends Node3D
 var in_air = false
 var jitter_amount = 0.1
 
+var target_blend_amount = 0
+
+func _ready() -> void:
+    await _wait(1)
+    target_blend_amount = 1
+
 func _process(_delta: float) -> void:
     # Rotate spine bone based on nervousness
     var skeleton: Skeleton3D = parent_character_body.body.get_node("root/Skeleton3D")
@@ -22,7 +28,11 @@ func _process(_delta: float) -> void:
         bone_transform.basis = bone_transform.basis.rotated(Vector3(0, 1, 0), jitter)
         skeleton.set_bone_pose(spine_idx, bone_transform)
     
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
+    var current_blend_amount = anim_tree.get("parameters/PlateBlend/blend_amount")
+    if current_blend_amount != target_blend_amount:
+        anim_tree.set("parameters/PlateBlend/blend_amount", move_toward(current_blend_amount, target_blend_amount, delta))
+
     if Global.game_paused == true:
         anim_tree.active = false
     else:
@@ -43,3 +53,6 @@ func _physics_process(_delta: float) -> void:
         
     anim_tree.set("parameters/PlayerLocomotion/WalkIdle/blend_position", Vector2(blend_x, blend_y))
     # anim_tree.set("parameters/PlayerLocomotion/conditions/in_air", in_air)
+
+func _wait(seconds: float) -> void:
+    await get_tree().create_timer(seconds).timeout

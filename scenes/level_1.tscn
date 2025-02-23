@@ -1,11 +1,10 @@
-[gd_scene load_steps=26 format=3 uid="uid://dclj8nly5pcfe"]
+[gd_scene load_steps=28 format=3 uid="uid://dclj8nly5pcfe"]
 
 [ext_resource type="PackedScene" uid="uid://coikl0fkikb3w" path="res://entities/player/player.tscn" id="1_00aaa"]
 [ext_resource type="Script" path="res://core/gamemodes/sandwich_mode.gd" id="1_i0qu0"]
 [ext_resource type="PackedScene" uid="uid://cch76xbj20hgx" path="res://ui/hud/nervous_meter/nervous_meter.tscn" id="2_25k1r"]
 [ext_resource type="AudioStream" uid="uid://bb2xqf0w0nbao" path="res://assets/sounds/music/Evasion.mp3" id="2_a62tu"]
 [ext_resource type="PackedScene" uid="uid://cp0ru0nrvvcfw" path="res://ui/win_screen/win_screen.tscn" id="2_mbpcn"]
-[ext_resource type="PackedScene" uid="uid://bshix3raxf1ac" path="res://assets/models/cubicle/cubicle.glb" id="3_1i1u8"]
 [ext_resource type="Script" path="res://ui/win_screen/win_screen.gd" id="3_agnd7"]
 [ext_resource type="PackedScene" uid="uid://dl0iqkiqnpjms" path="res://assets/models/office_assets/file_cabinet.glb" id="4_07ao4"]
 [ext_resource type="PackedScene" uid="uid://c50qfcsy7pd4j" path="res://ui/pause_screen/pause_screen.tscn" id="4_56yh2"]
@@ -17,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://c6jpl013ps6mo" path="res://assets/models/office_assets/water_jug.glb" id="8_owgte"]
 [ext_resource type="PackedScene" uid="uid://ia58rosxtitm" path="res://assets/models/office_assets/white_board.glb" id="8_ym4tc"]
 [ext_resource type="PackedScene" uid="uid://duvjwgkn6svn2" path="res://assets/models/office_assets/printer.glb" id="9_kgapy"]
+[ext_resource type="PackedScene" uid="uid://i4v35fc7mnr3" path="res://assets/models/cubicle/cubicle.tscn" id="11_gkegx"]
+[ext_resource type="PackedScene" uid="uid://d3fj3bfl6m5j4" path="res://entities/coworker/coworker.tscn" id="13_16nmw"]
 [ext_resource type="PackedScene" uid="uid://distm4kg13jd6" path="res://assets/models/pedastal/pedastal.tscn" id="18_2l4n6"]
 [ext_resource type="PackedScene" uid="uid://qln8lyf5544f" path="res://entities/sandwich/sandwich.tscn" id="19_vk5xs"]
 [ext_resource type="PackedScene" uid="uid://b4yqv77wh1l87" path="res://entities/boss/boss.tscn" id="20_ffwoq"]
@@ -25,6 +26,9 @@
 [sub_resource type="Environment" id="Environment_tmcyw"]
 background_mode = 1
 background_color = Color(0.85, 0.84575, 0.8415, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ixvjb"]
+size = Vector3(0.929199, 1.98242, 2.25378)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_6rexf"]
 radius = 2.5
@@ -92,6 +96,9 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_tmcyw")
 
+[node name="Sandwich" parent="." instance=ExtResource("19_vk5xs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.876139, 0.950086, 8.46703)
+
 [node name="Player" parent="." instance=ExtResource("1_00aaa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2275, -0.438316, 11.3521)
 
@@ -101,9 +108,6 @@ offset_top = 36.0
 offset_right = 25.0
 offset_bottom = 58.3333
 player = NodePath("../Player")
-
-[node name="Sandwich" parent="." instance=ExtResource("19_vk5xs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.876139, 0.950086, 7.29009)
 
 [node name="MapAssets" type="Node3D" parent="."]
 
@@ -180,19 +184,19 @@ size = Vector3(18.3367, 5.5, 0.5)
 
 [node name="Cubicles" type="Node3D" parent="MapAssets"]
 
-[node name="cubicle" parent="MapAssets/Cubicles" instance=ExtResource("3_1i1u8")]
+[node name="cubicle" parent="MapAssets/Cubicles" instance=ExtResource("11_gkegx")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.83696, 0.425929, 5.10097)
 
-[node name="cubicle5" parent="MapAssets/Cubicles" instance=ExtResource("3_1i1u8")]
+[node name="cubicle5" parent="MapAssets/Cubicles" instance=ExtResource("11_gkegx")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.83696, 0.425929, 2.10097)
 
-[node name="cubicle6" parent="MapAssets/Cubicles" instance=ExtResource("3_1i1u8")]
+[node name="cubicle6" parent="MapAssets/Cubicles" instance=ExtResource("11_gkegx")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.83696, 0.425929, -0.899031)
 
-[node name="cubicle7" parent="MapAssets/Cubicles" instance=ExtResource("3_1i1u8")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.83696, 0.425929, 8.10097)
+[node name="cubicle7" parent="MapAssets/Cubicles" instance=ExtResource("11_gkegx")]
+transform = Transform3D(-4.37082e-08, 0.0120076, 0.999928, 5.24868e-10, 0.999928, -0.0120076, -1, 0, -4.37114e-08, -2.83696, 0.425929, 8.10097)
 
-[node name="cubicle9" parent="MapAssets/Cubicles" instance=ExtResource("3_1i1u8")]
+[node name="cubicle9" parent="MapAssets/Cubicles" instance=ExtResource("11_gkegx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.83696, 0.425929, 10.601)
 
 [node name="white_board" parent="MapAssets/Cubicles/cubicle9" instance=ExtResource("8_ym4tc")]
@@ -216,9 +220,9 @@ collision_mask = 0
 size = Vector3(5.65723, 5.5, 0.5)
 
 [node name="BreakDoorway" type="CSGBox3D" parent="MapAssets/break_room/CSGBox3D3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.578613, -1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.903564, -1, 0)
 operation = 2
-size = Vector3(2.5, 3.5, 1.5)
+size = Vector3(1.8501, 3.5, 1.5)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="MapAssets/break_room"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.37209, 1.89844, -3.63841)
@@ -232,6 +236,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.55666)
 
 [node name="boss_desk" parent="MapAssets/BossRoom" instance=ExtResource("6_j8qpl")]
 transform = Transform3D(-5.90104e-08, 0, -1.35, 0, 1.35, 0, 1.35, 0, -5.90104e-08, 1, -0.5, -44)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MapAssets/BossRoom/boss_desk"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MapAssets/BossRoom/boss_desk/StaticBody3D"]
+transform = Transform3D(0.999933, 0, -1.6982e-12, 0, 0.999933, 0, 1.6982e-12, 0, 0.999933, 0.168205, 0.49121, -0.0430307)
+shape = SubResource("BoxShape3D_ixvjb")
 
 [node name="BossRoomWall" type="CSGBox3D" parent="MapAssets/BossRoom"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.31299, 2.5, -47.7901)
@@ -309,7 +321,7 @@ transform = Transform3D(1.1029, 0, 0, 0, 1.1029, 0, 0, 0, 1.1029, 7.77726, 0.025
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4215, 0.296666, -11.7362)
 
 [node name="pedastal" parent="MapAssets" instance=ExtResource("18_2l4n6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.876139, -0.5, 7.29009)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.876139, -0.5, 8.46703)
 
 [node name="Level Instructions" type="Node3D" parent="."]
 
@@ -336,8 +348,7 @@ text = "Controls:
 Movement: WASD
 Speed: Scroll Wheel
 Mouse: Rotate
-Click: Pickup
-"
+Pause/Restart: ESC"
 font = ExtResource("21_4w1uv")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Level Instructions/Controls"]
@@ -348,16 +359,16 @@ skeleton = NodePath("../../InitialInstruction")
 
 [node name="CubicleGroup" type="Node3D" parent="."]
 
-[node name="cubicle2" parent="CubicleGroup" instance=ExtResource("3_1i1u8")]
+[node name="cubicle2" parent="CubicleGroup" instance=ExtResource("11_gkegx")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 4.66304, 0.425929, 5.10097)
 
-[node name="cubicle8" parent="CubicleGroup" instance=ExtResource("3_1i1u8")]
+[node name="cubicle8" parent="CubicleGroup" instance=ExtResource("11_gkegx")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 4.66304, 0.425929, 8.10097)
 
-[node name="cubicle3" parent="CubicleGroup" instance=ExtResource("3_1i1u8")]
+[node name="cubicle3" parent="CubicleGroup" instance=ExtResource("11_gkegx")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 4.66304, 0.425929, 2.10097)
 
-[node name="cubicle4" parent="CubicleGroup" instance=ExtResource("3_1i1u8")]
+[node name="cubicle4" parent="CubicleGroup" instance=ExtResource("11_gkegx")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 4.66304, 0.425929, -0.925739)
 
 [node name="watercooler" parent="CubicleGroup" instance=ExtResource("6_7r4yh")]
@@ -368,3 +379,31 @@ transform = Transform3D(0.187844, 0, -0.982199, 0, 1, 0, 0.982199, 0, 0.187844, 
 
 [node name="water_jug" parent="CubicleGroup" instance=ExtResource("8_owgte")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.88274, -0.217207, 9.98084)
+
+[node name="Coworkers" type="Node3D" parent="."]
+
+[node name="Coworker" parent="Coworkers" instance=ExtResource("13_16nmw")]
+transform = Transform3D(0.473181, 0, 0.880965, 0, 1, 0, -0.880965, 0, 0.473181, -1.3894, -0.44524, 4.41928)
+
+[node name="Coworker2" parent="Coworkers" instance=ExtResource("13_16nmw")]
+transform = Transform3D(-0.0065276, 0, 0.999978, 0, 1, 0, -0.999978, 0, -0.0065276, 4.39272, -0.44524, 2.4104)
+
+[node name="Coworker4" parent="Coworkers" instance=ExtResource("13_16nmw")]
+transform = Transform3D(0.484184, 0, -0.874966, 0, 1, 0, 0.874966, 0, 0.484184, -2.39282, -0.44524, -0.766329)
+
+[node name="Coworker5" parent="Coworkers" instance=ExtResource("13_16nmw")]
+transform = Transform3D(-0.997491, 0, -0.0707839, 0, 1, 0, 0.0707839, 0, -0.997491, -3.77204, -0.485919, -17.4721)
+
+[node name="Coworker8" parent="Coworkers" instance=ExtResource("13_16nmw")]
+transform = Transform3D(-0.704473, 0, 0.70973, 0, 1, 0, -0.70973, 0, -0.704473, 6.15641, -0.485919, -21.0986)
+
+[node name="Coworker6" parent="Coworkers" instance=ExtResource("13_16nmw")]
+transform = Transform3D(0.0920749, 0, 0.995752, 0, 1, 0, -0.995752, 0, 0.0920749, 4.47979, -0.44524, -4.66053)
+
+[node name="Coworker7" parent="Coworkers" instance=ExtResource("13_16nmw")]
+transform = Transform3D(0.290463, 0, -0.276334, 0, 0.40091, 0, 0.276334, 0, 0.290463, 4.2684, 1.44201, 10.2186)
+
+[node name="printer" parent="Coworkers" instance=ExtResource("9_kgapy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.46924, 0.0099051, -19.9382)
+
+[editable path="MapAssets/BossRoom/boss_desk"]

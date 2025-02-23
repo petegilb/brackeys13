@@ -33,8 +33,6 @@ func _ready() -> void:
 	gravity_area = $RigidBody3D/Gravity
 
 	_toggle_gravity(true)
-
-	# await wait(1)
 	
 	# # Spawn sandwich and attach
 	# var sandwich = preload("res://entities/sandwich/sandwich.tscn")

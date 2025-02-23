@@ -1,0 +1,112 @@
+[gd_scene load_steps=12 format=3 uid="uid://d3fj3bfl6m5j4"]
+
+[ext_resource type="Script" path="res://entities/coworker/coworker.gd" id="1_jbyyj"]
+[ext_resource type="PackedScene" uid="uid://dsl13yinlqrcr" path="res://assets/models/character/test_character.glb" id="1_rhb20"]
+[ext_resource type="AnimationLibrary" uid="uid://cnj78ed0ellbq" path="res://assets/models/character/test_character_anims.glb" id="2_sdw8m"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_srxgk"]
+albedo_color = Color(0.86, 0.336117, 0.129, 1)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1q0pk"]
+animation = &"test_character_anims/Loco_Jump"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1m7r2"]
+animation = &"test_character_anims/Loco_Jump"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_agypr"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pc8sx"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jnk6s"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ols1f"]
+states/Start/position = Vector2(450, 119)
+states/test_character_anims_Loco_Jump/node = SubResource("AnimationNodeAnimation_1m7r2")
+states/test_character_anims_Loco_Jump/position = Vector2(625, 60)
+"states/test_character_anims_Loco_Jump 2/node" = SubResource("AnimationNodeAnimation_1q0pk")
+"states/test_character_anims_Loco_Jump 2/position" = Vector2(685, 170)
+transitions = ["Start", "test_character_anims_Loco_Jump", SubResource("AnimationNodeStateMachineTransition_agypr"), "test_character_anims_Loco_Jump", "test_character_anims_Loco_Jump 2", SubResource("AnimationNodeStateMachineTransition_pc8sx"), "test_character_anims_Loco_Jump 2", "test_character_anims_Loco_Jump", SubResource("AnimationNodeStateMachineTransition_jnk6s")]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_fwa1b"]
+radius = 1.10744
+
+[node name="Coworker" type="Node3D"]
+script = ExtResource("1_jbyyj")
+
+[node name="test_character" parent="." instance=ExtResource("1_rhb20")]
+
+[node name="Skeleton3D" parent="test_character/root" index="0"]
+bones/1/position = Vector3(-0.0018206, -0.0138921, 0.888386)
+bones/1/rotation = Quaternion(0.0121553, 0.683642, 0.727743, 0.0536303)
+bones/2/rotation = Quaternion(0.810369, 0.113618, 0.574489, -0.0188359)
+bones/3/rotation = Quaternion(0.0440148, -0.0121171, 0.159837, 0.986087)
+bones/4/rotation = Quaternion(0.338437, 0.556694, -0.354333, 0.67082)
+bones/5/rotation = Quaternion(-0.000190575, 0.962002, 0.272898, 0.00885151)
+bones/6/rotation = Quaternion(2.33062e-07, -0.0131454, 1.54703e-08, 0.999914)
+bones/7/rotation = Quaternion(1.11929e-07, 0.14473, 2.20828e-07, 0.989471)
+bones/8/rotation = Quaternion(0.785725, 0.0288295, -0.617757, -0.0134802)
+bones/9/rotation = Quaternion(0.0292778, 0.0839101, -0.104428, 0.990554)
+bones/10/rotation = Quaternion(0.387965, -0.544875, 0.353754, 0.653798)
+bones/11/rotation = Quaternion(0.000282179, 0.956249, 0.292259, -0.0130934)
+bones/12/rotation = Quaternion(1.96219e-07, 0.0316508, 6.26814e-08, 0.999499)
+bones/13/rotation = Quaternion(6.98347e-07, -0.0851075, 1.42292e-07, 0.996372)
+bones/14/rotation = Quaternion(0.00352626, 0.00886752, 0.0225909, 0.999699)
+bones/15/rotation = Quaternion(0.0200442, 0.00774574, 0.0273824, 0.999394)
+bones/17/rotation = Quaternion(0.193023, 0.00608953, 0.00529325, 0.981161)
+bones/18/rotation = Quaternion(-0.184535, 0.0050254, -0.00414169, 0.982804)
+bones/19/rotation = Quaternion(-0.467101, 0.463241, 0.64604, 0.387114)
+bones/20/rotation = Quaternion(-0.489491, -0.213714, 0.150893, 0.831839)
+bones/21/rotation = Quaternion(0.000113055, 0.00104082, 0.171112, 0.985251)
+bones/22/rotation = Quaternion(-0.018349, 0.0378943, 0.00556235, 0.999098)
+bones/23/rotation = Quaternion(-0.102185, -0.714779, 0.387201, 0.573345)
+bones/24/rotation = Quaternion(-0.3701, 0.116307, -0.0206803, 0.921451)
+bones/25/rotation = Quaternion(-0.0486593, -0.0329376, -0.188698, 0.980276)
+bones/26/rotation = Quaternion(-0.172678, 0.0296034, -0.00258321, 0.98453)
+bones/27/rotation = Quaternion(-0.289301, 0.0144274, 0.0710275, 0.95449)
+bones/28/rotation = Quaternion(-0.318459, 0.0108164, 0.0844946, 0.944102)
+bones/29/rotation = Quaternion(0.0404719, 0.0306194, 0.174915, 0.983275)
+bones/30/rotation = Quaternion(-0.326692, 0.071057, -0.0649818, 0.940213)
+bones/31/rotation = Quaternion(-0.173888, 0.0325882, 0.00474584, 0.984215)
+bones/32/rotation = Quaternion(1.0793e-08, 0.0379912, 6.54271e-09, 0.999278)
+bones/33/rotation = Quaternion(6.50937e-08, 0.263715, 5.91733e-08, 0.964601)
+bones/34/rotation = Quaternion(-0.448351, -0.483852, -0.644641, 0.386402)
+bones/35/rotation = Quaternion(-0.560328, 0.127856, -0.121638, 0.809252)
+bones/36/rotation = Quaternion(2.45739e-05, -0.00022685, -0.125952, 0.992036)
+bones/37/rotation = Quaternion(0.0187649, -0.145578, -0.0191696, 0.988983)
+bones/38/rotation = Quaternion(-0.11975, 0.717735, -0.377779, 0.572538)
+bones/39/rotation = Quaternion(-0.344846, -0.0960465, 0.0397308, 0.932887)
+bones/40/rotation = Quaternion(-0.0307239, 0.0406758, 0.15985, 0.985824)
+bones/41/rotation = Quaternion(-0.179426, -0.030944, 0.00466705, 0.983274)
+bones/42/rotation = Quaternion(-0.289507, -0.0149608, -0.0678737, 0.954649)
+bones/43/rotation = Quaternion(-0.318691, -0.0124187, -0.0815214, 0.944265)
+bones/44/rotation = Quaternion(0.0338479, -0.0332654, -0.174098, 0.983584)
+bones/45/rotation = Quaternion(-0.327093, -0.0710228, 0.0681092, 0.939855)
+bones/46/rotation = Quaternion(-0.173946, -0.0329644, -0.00330583, 0.984198)
+bones/47/rotation = Quaternion(2.84569e-08, -0.145292, -8.76743e-09, 0.989389)
+bones/48/rotation = Quaternion(-2.46778e-08, -0.175802, -7.25042e-08, 0.984426)
+
+[node name="Human" parent="test_character/root/Skeleton3D" index="0"]
+material_override = SubResource("StandardMaterial3D_srxgk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="test_character"]
+libraries = {
+"test_character_anims": ExtResource("2_sdw8m")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="test_character"]
+tree_root = SubResource("AnimationNodeStateMachine_ols1f")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="test_character"]
+collision_layer = 12
+collision_mask = 12
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="test_character/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.851554, 0.439321)
+shape = SubResource("SphereShape3D_fwa1b")
+
+[editable path="test_character"]
