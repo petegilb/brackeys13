@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://ui/main_menu/main_menu.gd" id="1_6ypos"]
 [ext_resource type="Theme" uid="uid://dh8nty0l4xmdy" path="res://ui/themes/main_theme.tres" id="1_mg157"]
-[ext_resource type="Texture2D" uid="uid://bhig8itpfbgw3" path="res://ui/images/samplelogo.png" id="2_lo8w6"]
+[ext_resource type="Texture2D" uid="uid://dakbbwnddrdbl" path="res://ui/images/lunch_or_laid_off_logo.png" id="2_j6l4a"]
 [ext_resource type="Shader" path="res://materials/shaders/scroll_background.gdshader" id="3_ty214"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gto6g"]
@@ -56,7 +56,7 @@ offset_right = 287.0
 offset_bottom = 139.672
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_lo8w6")
+texture = ExtResource("2_j6l4a")
 stretch_mode = 5
 
 [node name="ScrollingBackground" type="TextureRect" parent="."]

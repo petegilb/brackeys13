@@ -35,6 +35,11 @@ func _on_body_entered(body: Node3D):
 	bodies_in_range[body] = true
 	num_bodies_in_range += 1
 
+	print(body)
+
+	# if body.get_parent() and body.is_in_group('body'):
+
+
 func _on_body_exited(body: Node3D):
 	bodies_in_range.erase(body)
 	num_bodies_in_range -= 1

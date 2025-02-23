@@ -1,16 +1,15 @@
 [gd_scene load_steps=6 format=3 uid="uid://qln8lyf5544f"]
 
 [ext_resource type="PackedScene" uid="uid://b1uhv7enmdf81" path="res://assets/models/sandwich/sandwich.glb" id="1_0rscr"]
-[ext_resource type="Script" path="res://entities/sandwich/sandwich.gd" id="1_7m7ft"]
-[ext_resource type="PackedScene" uid="uid://bj0d2w08diinj" path="res://components/pickup/pickup_component.tscn" id="2_nfqi3"]
+[ext_resource type="Script" path="res://entities/sandwich/sandwich.gd" id="1_xuayd"]
+[ext_resource type="PackedScene" uid="uid://cawupq0im8ol6" path="res://components/hover/hover_component.tscn" id="4_c3xei"]
+[ext_resource type="FontFile" uid="uid://d1sf3aqcngmny" path="res://ui/fonts/UbuntuMono-Bold.ttf" id="5_kmc87"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2dl5s"]
 size = Vector3(0.182159, 0.0867844, 0.193207)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_fjvf2"]
-
 [node name="Sandwich" type="Node3D"]
-script = ExtResource("1_7m7ft")
+script = ExtResource("1_xuayd")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 collision_layer = 16
@@ -25,9 +24,12 @@ shape = SubResource("BoxShape3D_2dl5s")
 [node name="SandwichModel" parent="RigidBody3D/CollisionShape3D" instance=ExtResource("1_0rscr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00325012, -0.000315681, 0.00831604)
 
-[node name="PickupComponent" parent="." instance=ExtResource("2_nfqi3")]
+[node name="HoverComponent" parent="." instance=ExtResource("4_c3xei")]
+hover_height = 0.1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupComponent"]
-shape = SubResource("CircleShape2D_fjvf2")
+[node name="PickLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.247934, 0)
+text = "Pick Me Up"
+font = ExtResource("5_kmc87")
 
 [editable path="RigidBody3D/CollisionShape3D/SandwichModel"]

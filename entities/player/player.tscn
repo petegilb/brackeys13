@@ -20,7 +20,7 @@ height = 1.8923
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3n4q7"]
 shading_mode = 0
-albedo_color = Color(1, 0.24, 0.24, 1)
+albedo_color = Color(0.286371, 0.553903, 1, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_hd06y"]
 
@@ -52,8 +52,8 @@ near = 0.01
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000973701, -0.0543532)
 
 [node name="MovementComponent" parent="." instance=ExtResource("2_s1y7t")]
-current_speed = 5.0
-max_speed = 20.0
+current_speed = 1.5
+max_speed = 3.0
 jump_velocity = 4.5
 additional_gravity_force = Vector3(0, -3, 0)
 
@@ -69,24 +69,24 @@ shape = SubResource("CapsuleShape3D_6hmog")
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.924335, 0)
 
 [node name="Skeleton3D" parent="Collider/test_character/root" index="0"]
-bones/1/position = Vector3(0.00365648, -0.00850661, 0.887417)
-bones/1/rotation = Quaternion(0.0127442, 0.680715, 0.73079, 0.0491013)
-bones/2/rotation = Quaternion(0.812937, 0.108068, 0.57173, -0.0240553)
-bones/3/rotation = Quaternion(0.0447092, -0.00511709, 0.162939, 0.985609)
-bones/4/rotation = Quaternion(0.338092, 0.555458, -0.356214, 0.671023)
-bones/5/rotation = Quaternion(-0.000192174, 0.961918, 0.273194, 0.00891624)
-bones/6/rotation = Quaternion(2.46939e-07, -0.0127497, 1.56767e-08, 0.999919)
-bones/7/rotation = Quaternion(-9.89378e-09, 0.147213, 7.87465e-08, 0.989105)
-bones/8/rotation = Quaternion(0.786866, 0.027891, -0.616315, -0.0148047)
-bones/9/rotation = Quaternion(0.0319568, 0.0821586, -0.1197, 0.988889)
-bones/10/rotation = Quaternion(0.394994, -0.539323, 0.36252, 0.649377)
-bones/11/rotation = Quaternion(0.000275773, 0.956672, 0.290886, -0.0127919)
-bones/12/rotation = Quaternion(1.09139e-07, 0.0334483, 6.86489e-08, 0.999441)
-bones/13/rotation = Quaternion(6.56087e-07, -0.0853287, 1.58624e-07, 0.996353)
-bones/14/rotation = Quaternion(0.0128377, 0.0127717, 0.0266405, 0.999481)
-bones/15/rotation = Quaternion(0.0248914, 0.0103945, 0.0301848, 0.99918)
-bones/17/rotation = Quaternion(0.198447, 0.00496795, 0.00459014, 0.980088)
-bones/18/rotation = Quaternion(-0.193848, 0.000970852, -0.00254216, 0.981028)
+bones/1/position = Vector3(0.00220929, -0.00919943, 0.887502)
+bones/1/rotation = Quaternion(0.0130971, 0.682416, 0.72917, 0.0494758)
+bones/2/rotation = Quaternion(0.812337, 0.106559, 0.572811, -0.0253405)
+bones/3/rotation = Quaternion(0.0441932, -0.00775294, 0.15689, 0.986596)
+bones/4/rotation = Quaternion(0.337795, 0.556806, -0.355494, 0.670437)
+bones/5/rotation = Quaternion(-0.000145011, 0.96154, 0.274507, 0.00928742)
+bones/6/rotation = Quaternion(2.46872e-07, -0.0119528, 1.4858e-08, 0.999929)
+bones/7/rotation = Quaternion(2.94661e-07, 0.145101, 1.01455e-06, 0.989417)
+bones/8/rotation = Quaternion(0.78624, 0.0272481, -0.617158, -0.0141749)
+bones/9/rotation = Quaternion(0.031105, 0.08286, -0.11293, 0.989653)
+bones/10/rotation = Quaternion(0.392175, -0.541642, 0.358838, 0.651198)
+bones/11/rotation = Quaternion(0.000275676, 0.956667, 0.290903, -0.0127954)
+bones/12/rotation = Quaternion(2.4663e-07, 0.031875, 1.13336e-07, 0.999492)
+bones/13/rotation = Quaternion(6.39138e-07, -0.0862909, 1.62107e-07, 0.99627)
+bones/14/rotation = Quaternion(0.00695237, 0.0116595, 0.024208, 0.999615)
+bones/15/rotation = Quaternion(0.0215101, 0.00985853, 0.0288066, 0.999305)
+bones/17/rotation = Quaternion(0.193903, 0.00507177, 0.00450758, 0.980997)
+bones/18/rotation = Quaternion(-0.192307, 0.000327843, -0.00376484, 0.981328)
 bones/20/rotation = Quaternion(-0.486795, -0.0426736, 0.427315, 0.760665)
 bones/21/rotation = Quaternion(-1.01111e-07, 5.02742e-08, 0.564727, 0.825278)
 bones/22/rotation = Quaternion(0.266823, 0.62121, -0.0521534, 0.734972)
@@ -118,7 +118,7 @@ bones/48/rotation = Quaternion(-4.08809e-08, -0.294505, 7.42662e-08, 0.95565)
 material_override = SubResource("StandardMaterial3D_3n4q7")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Collider/test_character/root/Skeleton3D" index="1"]
-transform = Transform3D(0.770444, 0.0797544, -0.6325, -0.612804, -0.180867, -0.769258, -0.17575, 0.980268, -0.0904736, -0.0811335, 1.15597, 0.297657)
+transform = Transform3D(0.766023, 0.0736337, -0.638583, -0.621574, -0.168412, -0.765038, -0.163877, 0.982963, -0.0832382, -0.0806182, 1.16123, 0.296523)
 bone_name = "RightHand"
 bone_idx = 22
 
@@ -153,7 +153,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_7oi84")
 
 [node name="DetectionComponent" parent="." instance=ExtResource("7_3gxq7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.969131, 0)
-collision_mask = 12
+collision_mask = 28
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionComponent"]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)

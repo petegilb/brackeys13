@@ -34,14 +34,14 @@ func _ready() -> void:
 
 	_toggle_gravity(true)
 
-	await wait(1)
+	# await wait(1)
 	
-	# Spawn sandwich and attach
-	var sandwich = preload("res://entities/sandwich/sandwich.tscn")
-	var sandwich_object = sandwich.instantiate()
-	sandwich_object.global_position = self.global_position
-	get_tree().current_scene.add_child(sandwich_object)
-	_attach_sandwich(sandwich_object)
+	# # Spawn sandwich and attach
+	# var sandwich = preload("res://entities/sandwich/sandwich.tscn")
+	# var sandwich_object = sandwich.instantiate()
+	# sandwich_object.global_position = self.global_position
+	# get_tree().current_scene.add_child(sandwich_object)
+	# _attach_sandwich(sandwich_object)
 
 	# Object approaching
 	detection_area.body_entered.connect(_on_object_entered_plate)
