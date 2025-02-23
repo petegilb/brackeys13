@@ -385,12 +385,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.88274, -0.217207, 9.98084)
 [node name="Coworker" parent="Coworkers" instance=ExtResource("13_16nmw")]
 transform = Transform3D(0.473181, 0, 0.880965, 0, 1, 0, -0.880965, 0, 0.473181, -1.3894, -0.44524, 4.41928)
 
-[node name="Coworker2" parent="Coworkers" instance=ExtResource("13_16nmw")]
-transform = Transform3D(-0.0065276, 0, 0.999978, 0, 1, 0, -0.999978, 0, -0.0065276, 4.39272, -0.44524, 2.4104)
-
-[node name="Coworker4" parent="Coworkers" instance=ExtResource("13_16nmw")]
-transform = Transform3D(0.484184, 0, -0.874966, 0, 1, 0, 0.874966, 0, 0.484184, -2.39282, -0.44524, -0.766329)
-
 [node name="Coworker5" parent="Coworkers" instance=ExtResource("13_16nmw")]
 transform = Transform3D(-0.997491, 0, -0.0707839, 0, 1, 0, 0.0707839, 0, -0.997491, -3.77204, -0.485919, -17.4721)
 
