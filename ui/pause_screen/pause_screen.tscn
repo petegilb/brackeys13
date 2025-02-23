@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://c50qfcsy7pd4j"]
+
+[ext_resource type="Theme" uid="uid://dh8nty0l4xmdy" path="res://ui/themes/main_theme.tres" id="1_mi8v8"]
+[ext_resource type="Script" path="res://ui/pause_screen/pause_screen.gd" id="1_usxj1"]
+[ext_resource type="FontFile" uid="uid://d1sf3aqcngmny" path="res://ui/fonts/UbuntuMono-Bold.ttf" id="2_tvsqa"]
+
+[node name="PauseScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_usxj1")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -164.0
+offset_right = 200.0
+offset_bottom = 164.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_mi8v8")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(151.39, 72.505)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_mi8v8")
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("2_tvsqa")
+theme_override_font_sizes/bold_italics_font_size = 50
+theme_override_font_sizes/italics_font_size = 50
+theme_override_font_sizes/mono_font_size = 50
+theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/bold_font_size = 50
+text = "Paused"
+
+[node name="ResumeButton" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_mi8v8")
+theme_override_colors/font_color = Color(0.899258, 0.899258, 0.899258, 1)
+text = "Resume"
+
+[node name="RestartButton" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_mi8v8")
+theme_override_colors/font_color = Color(0.899258, 0.899258, 0.899258, 1)
+text = "Restart"
+
+[node name="QuitButton" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_mi8v8")
+theme_override_colors/font_color = Color(0.899258, 0.899258, 0.899258, 1)
+text = "Quit"

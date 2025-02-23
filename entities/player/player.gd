@@ -48,6 +48,10 @@ func handle_input() -> void:
 			print("Picked up")
 			_hovered_object.position = plate.position
 
+	if Input.is_action_just_pressed("pause"):
+		print('pressed pause...')
+		Global._pause_game(!Global.game_paused)
+
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("left", "right", "up", "down")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dclj8nly5pcfe"]
+[gd_scene load_steps=19 format=3 uid="uid://dclj8nly5pcfe"]
 
 [ext_resource type="PackedScene" uid="uid://coikl0fkikb3w" path="res://entities/player/player.tscn" id="1_00aaa"]
 [ext_resource type="Script" path="res://core/gamemodes/sandwich_mode.gd" id="1_i0qu0"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bshix3raxf1ac" path="res://assets/models/cubicle/cubicle.glb" id="3_1i1u8"]
 [ext_resource type="Script" path="res://ui/win_screen/win_screen.gd" id="3_agnd7"]
 [ext_resource type="PackedScene" uid="uid://dl0iqkiqnpjms" path="res://assets/models/office_assets/file_cabinet.glb" id="4_07ao4"]
+[ext_resource type="PackedScene" uid="uid://c50qfcsy7pd4j" path="res://ui/pause_screen/pause_screen.tscn" id="4_56yh2"]
 [ext_resource type="PackedScene" uid="uid://cgti8ggqx4v31" path="res://assets/models/breakroom/break_room.glb" id="4_fqdxw"]
 [ext_resource type="PackedScene" uid="uid://crxucbje30sx5" path="res://assets/models/office_assets/big_table.glb" id="5_xn5yk"]
 [ext_resource type="PackedScene" uid="uid://kh8nw5n58evj" path="res://assets/models/office_assets/watercooler.glb" id="6_7r4yh"]
@@ -23,14 +24,18 @@ radius = 2.5
 background_mode = 1
 background_color = Color(0.85, 0.84575, 0.8415, 1)
 
-[node name="Level1" type="Node3D" node_paths=PackedStringArray("target_area", "win_screen")]
+[node name="Level1" type="Node3D" node_paths=PackedStringArray("target_area", "win_screen", "pause_screen")]
 script = ExtResource("1_i0qu0")
 target_area = NodePath("WinArea")
 win_screen = NodePath("WinScreen")
+pause_screen = NodePath("PauseScreen")
 
 [node name="WinScreen" parent="." instance=ExtResource("2_mbpcn")]
 visible = false
 script = ExtResource("3_agnd7")
+
+[node name="PauseScreen" parent="." instance=ExtResource("4_56yh2")]
+visible = false
 
 [node name="WinArea" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -43.5)
