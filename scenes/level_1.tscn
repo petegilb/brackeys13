@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://dclj8nly5pcfe"]
+[gd_scene load_steps=21 format=3 uid="uid://dclj8nly5pcfe"]
 
 [ext_resource type="PackedScene" uid="uid://coikl0fkikb3w" path="res://entities/player/player.tscn" id="1_00aaa"]
 [ext_resource type="Script" path="res://core/gamemodes/sandwich_mode.gd" id="1_i0qu0"]
 [ext_resource type="PackedScene" uid="uid://cch76xbj20hgx" path="res://ui/hud/nervous_meter/nervous_meter.tscn" id="2_25k1r"]
+[ext_resource type="AudioStream" uid="uid://bb2xqf0w0nbao" path="res://assets/sounds/music/Evasion.mp3" id="2_a62tu"]
 [ext_resource type="PackedScene" uid="uid://cp0ru0nrvvcfw" path="res://ui/win_screen/win_screen.tscn" id="2_mbpcn"]
 [ext_resource type="PackedScene" uid="uid://bshix3raxf1ac" path="res://assets/models/cubicle/cubicle.glb" id="3_1i1u8"]
 [ext_resource type="Script" path="res://ui/win_screen/win_screen.gd" id="3_agnd7"]
@@ -16,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://c6jpl013ps6mo" path="res://assets/models/office_assets/water_jug.glb" id="8_owgte"]
 [ext_resource type="PackedScene" uid="uid://ia58rosxtitm" path="res://assets/models/office_assets/white_board.glb" id="8_ym4tc"]
 [ext_resource type="PackedScene" uid="uid://duvjwgkn6svn2" path="res://assets/models/office_assets/printer.glb" id="9_kgapy"]
+[ext_resource type="PackedScene" uid="uid://distm4kg13jd6" path="res://assets/models/pedastal/pedastal.tscn" id="18_2l4n6"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_6rexf"]
 radius = 2.5
@@ -29,6 +31,11 @@ script = ExtResource("1_i0qu0")
 target_area = NodePath("WinArea")
 win_screen = NodePath("WinScreen")
 pause_screen = NodePath("PauseScreen")
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_a62tu")
+volume_db = -22.762
+autoplay = true
 
 [node name="WinScreen" parent="." instance=ExtResource("2_mbpcn")]
 visible = false
@@ -307,3 +314,6 @@ transform = Transform3D(1.1029, 0, 0, 0, 1.1029, 0, 0, 0, 1.1029, 7.77726, 0.025
 
 [node name="big_table2" parent="." instance=ExtResource("5_xn5yk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4215, 0.296666, -11.7362)
+
+[node name="pedastal" parent="." instance=ExtResource("18_2l4n6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, 9.5)

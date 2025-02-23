@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://distm4kg13jd6"]
+
+[ext_resource type="PackedScene" uid="uid://b1bhhtpiwsxj3" path="res://assets/models/pedastal/pedastal.glb" id="1_jxtc4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_elcuo"]
+albedo_color = Color(0.89, 0.812125, 0.2225, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_oe3n4"]
+height = 1.18243
+radius = 0.265382
+
+[node name="pedastal" instance=ExtResource("1_jxtc4")]
+
+[node name="Pedastal" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_elcuo")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.628932, 0)
+shape = SubResource("CylinderShape3D_oe3n4")
