@@ -8,7 +8,7 @@ func _ready() -> void:
     quit_button.button_down.connect(_quit_button)
 
 func _play_button() -> void:
-    Global.main.load_level_by_id('test')
+    Global.main.load_level_by_id('level1')
 
 func _quit_button() -> void:
     Global.quit_game()

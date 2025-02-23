@@ -2,10 +2,12 @@ extends Node3D
 
 const MAINMENU = preload("res://ui/main_menu/main_menu.tscn")
 const TESTSCENE = preload("res://scenes/test.tscn")
+const LEVEL1 = preload("res://scenes/level_1.tscn")
 
 const LEVELS = {
     'mainmenu': MAINMENU,
-    'test': TESTSCENE
+    'test': TESTSCENE,
+    'level1': LEVEL1
 }
 
 var current_level : Node

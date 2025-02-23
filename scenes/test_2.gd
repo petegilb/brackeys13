@@ -14,7 +14,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	# plate.rigid_body.linear_velocity.y = 0.5
 
 	var camera = get_viewport().get_camera_3d()

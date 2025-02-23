@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://dclj8nly5pcfe"]
+
+[ext_resource type="PackedScene" uid="uid://coikl0fkikb3w" path="res://entities/player/player.tscn" id="1_00aaa"]
+[ext_resource type="PackedScene" uid="uid://cch76xbj20hgx" path="res://ui/hud/nervous_meter/nervous_meter.tscn" id="2_25k1r"]
+
+[sub_resource type="Environment" id="Environment_tmcyw"]
+background_mode = 1
+background_color = Color(0.85, 0.84575, 0.8415, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jy8h7"]
+albedo_color = Color(0.85098, 0.847059, 0.843137, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5fp5a"]
+
+[node name="ArtTest" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_tmcyw")
+
+[node name="Mesh" type="CSGMesh3D" parent="."]
+transform = Transform3D(30, 0, 0, 0, 1, 0, 0, 0, 30, 0, -1, 0)
+material_override = SubResource("StandardMaterial3D_jy8h7")
+use_collision = true
+collision_layer = 2
+collision_mask = 0
+mesh = SubResource("BoxMesh_5fp5a")
+
+[node name="Player" parent="." instance=ExtResource("1_00aaa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.438316, 0)
+
+[node name="NervousMeter" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_25k1r")]
+offset_left = 24.0
+offset_top = 36.0
+offset_right = 25.0
+offset_bottom = 58.3333
+player = NodePath("../Player")

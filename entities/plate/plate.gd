@@ -34,6 +34,8 @@ func _ready() -> void:
 
 	_toggle_gravity(true)
 
+	await wait(1)
+	
 	# Spawn sandwich and attach
 	var sandwich = preload("res://entities/sandwich/sandwich.tscn")
 	var sandwich_object = sandwich.instantiate()
@@ -47,7 +49,6 @@ func _ready() -> void:
 	# Object exiting
 	detection_area.body_exited.connect(_on_object_exited_plate)
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if object_on_plate and global_transform.origin.distance_to(object_on_plate.global_transform.origin) > max_distance:
@@ -58,6 +59,9 @@ func _process(_delta: float) -> void:
 
 
 ### Private methods ###
+
+func wait(seconds: float) -> void:
+	await get_tree().create_timer(seconds).timeout
 
 ## TODO: Make it so other objects aren't attracted if the plate already has an object on it
 func _on_object_exited_plate(body: Node3D):
