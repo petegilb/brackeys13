@@ -41,11 +41,14 @@ script = ExtResource("1_yb1wu")
 [node name="CameraPivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.785857, 0.618408, 0, -0.618408, 0.785857, 0, 1.50148, 0)
 
-[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot"]
+collision_mask = 2
+spring_length = 3.0
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot/SpringArm3D"]
 near = 0.01
 
-[node name="PpOutline" parent="CameraPivot/Camera3D" instance=ExtResource("2_q4tp2")]
+[node name="PpOutline" parent="CameraPivot/SpringArm3D/Camera3D" instance=ExtResource("2_q4tp2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000973701, -0.0543532)
 
 [node name="MovementComponent" parent="." instance=ExtResource("2_s1y7t")]
@@ -55,7 +58,7 @@ jump_velocity = 4.5
 additional_gravity_force = Vector3(0, -3, 0)
 
 [node name="MouseDirectionComponent" parent="." node_paths=PackedStringArray("active_camera", "collider") instance=ExtResource("3_j4bib")]
-active_camera = NodePath("../CameraPivot/Camera3D")
+active_camera = NodePath("../CameraPivot/SpringArm3D/Camera3D")
 collider = NodePath("../Collider")
 
 [node name="Collider" type="CollisionShape3D" parent="."]
@@ -66,24 +69,24 @@ shape = SubResource("CapsuleShape3D_6hmog")
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.924335, 0)
 
 [node name="Skeleton3D" parent="Collider/test_character/root" index="0"]
-bones/1/position = Vector3(-0.00267201, -0.0149526, 0.887944)
-bones/1/rotation = Quaternion(0.0120231, 0.682236, 0.729172, 0.0521273)
-bones/2/rotation = Quaternion(0.809564, 0.111411, 0.576103, -0.017312)
-bones/3/rotation = Quaternion(0.0436985, -0.0134139, 0.157771, 0.986417)
-bones/4/rotation = Quaternion(0.338147, 0.557609, -0.352928, 0.670947)
-bones/5/rotation = Quaternion(-0.000192121, 0.961921, 0.273183, 0.00891382)
-bones/6/rotation = Quaternion(2.47969e-07, -0.0128368, 1.5335e-08, 0.999918)
-bones/7/rotation = Quaternion(1.95342e-07, 0.143939, 6.5136e-07, 0.989587)
-bones/8/rotation = Quaternion(0.786199, 0.0272409, -0.617201, -0.0145729)
-bones/9/rotation = Quaternion(0.0298543, 0.0827202, -0.107637, 0.990293)
-bones/10/rotation = Quaternion(0.387874, -0.544802, 0.355786, 0.65281)
-bones/11/rotation = Quaternion(0.000280147, 0.956386, 0.291818, -0.0129965)
-bones/12/rotation = Quaternion(2.95986e-07, 0.030606, 8.53922e-08, 0.999532)
-bones/13/rotation = Quaternion(6.6306e-07, -0.0851709, 1.62197e-07, 0.996366)
-bones/14/rotation = Quaternion(0.00401307, 0.00919861, 0.0227989, 0.99969)
-bones/15/rotation = Quaternion(0.0206524, 0.00812759, 0.0273603, 0.999379)
-bones/17/rotation = Quaternion(0.192488, 0.00588837, 0.00555134, 0.981266)
-bones/18/rotation = Quaternion(-0.184779, 0.00420772, -0.00399222, 0.982763)
+bones/1/position = Vector3(0.00446382, -0.00736031, 0.887281)
+bones/1/rotation = Quaternion(0.00940529, 0.679536, 0.732176, 0.0454073)
+bones/2/rotation = Quaternion(0.812217, 0.106561, 0.572927, -0.0265189)
+bones/3/rotation = Quaternion(0.0446737, -0.00151246, 0.162174, 0.985749)
+bones/4/rotation = Quaternion(0.336646, 0.556371, -0.355217, 0.671522)
+bones/5/rotation = Quaternion(-0.000195767, 0.961902, 0.27325, 0.00892127)
+bones/6/rotation = Quaternion(2.46847e-07, -0.0124467, 1.66799e-08, 0.999923)
+bones/7/rotation = Quaternion(3.79492e-07, 0.144608, 1.21212e-06, 0.989489)
+bones/8/rotation = Quaternion(0.786919, 0.0304846, -0.616072, -0.016873)
+bones/9/rotation = Quaternion(0.0317309, 0.0824234, -0.118547, 0.989013)
+bones/10/rotation = Quaternion(0.396248, -0.536375, 0.361041, 0.651873)
+bones/11/rotation = Quaternion(0.000272821, 0.956856, 0.290288, -0.0126604)
+bones/12/rotation = Quaternion(2.09126e-07, 0.0368057, 1.00232e-07, 0.999323)
+bones/13/rotation = Quaternion(6.42111e-07, -0.0862001, 1.62065e-07, 0.996278)
+bones/14/rotation = Quaternion(0.00628329, 0.0123835, 0.0245172, 0.999603)
+bones/15/rotation = Quaternion(0.0208333, 0.00980678, 0.0290804, 0.999312)
+bones/17/rotation = Quaternion(0.19517, 0.00473363, 0.00470157, 0.980747)
+bones/18/rotation = Quaternion(-0.192337, 9.73361e-05, -0.00420122, 0.98132)
 bones/20/rotation = Quaternion(-0.486795, -0.0426736, 0.427315, 0.760665)
 bones/21/rotation = Quaternion(-1.01111e-07, 5.02742e-08, 0.564727, 0.825278)
 bones/22/rotation = Quaternion(0.266823, 0.62121, -0.0521534, 0.734972)
@@ -115,7 +118,7 @@ bones/48/rotation = Quaternion(-4.08809e-08, -0.294505, 7.42662e-08, 0.95565)
 material_override = SubResource("StandardMaterial3D_3n4q7")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Collider/test_character/root/Skeleton3D" index="1"]
-transform = Transform3D(0.76083, 0.0610573, -0.646073, -0.631159, -0.161905, -0.758568, -0.150918, 0.984915, -0.0846447, -0.0774668, 1.16499, 0.289065)
+transform = Transform3D(0.76439, 0.086134, -0.638976, -0.6228, -0.157779, -0.766307, -0.166822, 0.98371, -0.0669601, -0.0790029, 1.16429, 0.29697)
 bone_name = "RightHand"
 bone_idx = 22
 
@@ -166,7 +169,7 @@ visible = false
 
 [node name="AnimationComponent" parent="." node_paths=PackedStringArray("anim_tree", "active_camera", "collider") instance=ExtResource("9_h4oi0")]
 anim_tree = NodePath("../Collider/test_character/AnimationTree")
-active_camera = NodePath("../CameraPivot/Camera3D")
+active_camera = NodePath("../CameraPivot/SpringArm3D/Camera3D")
 collider = NodePath("../Collider")
 
 [editable path="Collider/test_character"]

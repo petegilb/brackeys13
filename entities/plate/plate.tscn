@@ -31,7 +31,6 @@ shape = SubResource("CylinderShape3D_5qs5k")
 
 [node name="JoltGeneric6DOFJoint3D" type="JoltGeneric6DOFJoint3D" parent="RigidBody3D"]
 node_a = NodePath("..")
-node_b = NodePath("Sandwich")
 exclude_nodes_from_collision = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0293079, 0)
 
