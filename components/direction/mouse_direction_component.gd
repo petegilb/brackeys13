@@ -28,6 +28,9 @@ var target_rotation := 0.0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	if(Global.game_paused == true):
+		return
+
 	# Get the mouse position and project it to 3D
 	mouse_pos_2d = get_viewport().get_mouse_position()
 	mouse_pos_3d = active_camera.project_position(mouse_pos_2d, get_depth_away_from_camera())

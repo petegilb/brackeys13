@@ -31,6 +31,10 @@ func load_level(level_resource : Resource) -> void:
     self.add_child(current_level)
     
 func unload_level() -> void:
+    var root = get_tree().current_scene
+    for child in root.get_children():
+        child.queue_free()  # Queue for deletion
+
     if is_instance_valid(current_level):
         current_level.queue_free()
     current_level = null

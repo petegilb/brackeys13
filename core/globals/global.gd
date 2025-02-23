@@ -3,6 +3,8 @@ extends Node
 @onready var your_mom = false
 @onready var main = get_tree().get_root().get_node('Main')
 
+var game_paused = false
+
 func quit_game() -> void:
     get_tree().quit()
 

@@ -1,8 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://dclj8nly5pcfe"]
+[gd_scene load_steps=18 format=3 uid="uid://dclj8nly5pcfe"]
 
 [ext_resource type="PackedScene" uid="uid://coikl0fkikb3w" path="res://entities/player/player.tscn" id="1_00aaa"]
+[ext_resource type="Script" path="res://core/gamemodes/sandwich_mode.gd" id="1_i0qu0"]
 [ext_resource type="PackedScene" uid="uid://cch76xbj20hgx" path="res://ui/hud/nervous_meter/nervous_meter.tscn" id="2_25k1r"]
+[ext_resource type="PackedScene" uid="uid://cp0ru0nrvvcfw" path="res://ui/win_screen/win_screen.tscn" id="2_mbpcn"]
 [ext_resource type="PackedScene" uid="uid://bshix3raxf1ac" path="res://assets/models/cubicle/cubicle.glb" id="3_1i1u8"]
+[ext_resource type="Script" path="res://ui/win_screen/win_screen.gd" id="3_agnd7"]
 [ext_resource type="PackedScene" uid="uid://dl0iqkiqnpjms" path="res://assets/models/office_assets/file_cabinet.glb" id="4_07ao4"]
 [ext_resource type="PackedScene" uid="uid://cgti8ggqx4v31" path="res://assets/models/breakroom/break_room.glb" id="4_fqdxw"]
 [ext_resource type="PackedScene" uid="uid://crxucbje30sx5" path="res://assets/models/office_assets/big_table.glb" id="5_xn5yk"]
@@ -13,11 +16,30 @@
 [ext_resource type="PackedScene" uid="uid://ia58rosxtitm" path="res://assets/models/office_assets/white_board.glb" id="8_ym4tc"]
 [ext_resource type="PackedScene" uid="uid://duvjwgkn6svn2" path="res://assets/models/office_assets/printer.glb" id="9_kgapy"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_6rexf"]
+radius = 2.5
+
 [sub_resource type="Environment" id="Environment_tmcyw"]
 background_mode = 1
 background_color = Color(0.85, 0.84575, 0.8415, 1)
 
-[node name="ArtTest" type="Node3D"]
+[node name="Level1" type="Node3D" node_paths=PackedStringArray("target_area", "win_screen")]
+script = ExtResource("1_i0qu0")
+target_area = NodePath("WinArea")
+win_screen = NodePath("WinScreen")
+
+[node name="WinScreen" parent="." instance=ExtResource("2_mbpcn")]
+visible = false
+script = ExtResource("3_agnd7")
+
+[node name="WinArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -43.5)
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WinArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -0.5)
+shape = SubResource("SphereShape3D_6rexf")
 
 [node name="Lights" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)

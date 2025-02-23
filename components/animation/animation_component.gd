@@ -23,6 +23,11 @@ func _process(_delta: float) -> void:
         skeleton.set_bone_pose(spine_idx, bone_transform)
     
 func _physics_process(_delta: float) -> void:
+    if Global.game_paused == true:
+        anim_tree.active = false
+    else:
+        anim_tree.active = true
+
     var velocity = parent_character_body.velocity
     in_air = !parent_character_body.is_on_floor()
 

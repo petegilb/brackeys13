@@ -15,11 +15,15 @@ var _hovered_object: Node = null
 @onready var mouse = $MouseDirectionComponent
 @onready var body = $Collider/test_character
 @onready var collider = $Collider
+@onready var anim_player = $Collider/test_character/AnimationPlayer
 @onready var plate := $Collider/test_character/root/Skeleton3D/BoneAttachment3D/Plate
 
 ### Built in virtual functions ###
 
 func _physics_process(delta: float) -> void:
+	if(Global.game_paused == true):
+		return
+
 	# Obtain input
 	handle_input()
 
@@ -28,7 +32,7 @@ func _physics_process(delta: float) -> void:
 
 ### Public functions ###
 
-func handle_input() -> void: 
+func handle_input() -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("jump"):
 		movement.execute_jump()
