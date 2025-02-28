@@ -1,4 +1,6 @@
 # Nothing could go wrong... Game
+[Submission](https://itch.io/jam/brackeys-13/rate/3349595)
+
 For Brackeys Game Jam 2025.1 [13](https://itch.io/jam/brackeys-13)
 
 
